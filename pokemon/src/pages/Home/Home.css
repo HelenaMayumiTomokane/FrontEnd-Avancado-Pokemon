@@ -1,15 +1,27 @@
 .home-container {
+  background-color: var(--color-background);
   text-align: center;
-  margin-top: 50px;
+  padding: 20px;
 }
 
-.home-container h1 {
-  color: #ff5757;
-  font-size: 2.5rem;
+h1 {
+  color: var(--color-primary);
 }
 
-.home-container p {
-  font-size: 1.2rem;
-  color: #333;
-  margin-top: 10px;
+.search-container {
+  margin-top: 20px;
+}
+
+button {
+  background-color: var(--color-secondary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: var(--color-accent);
 }
