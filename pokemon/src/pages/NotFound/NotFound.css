@@ -1,0 +1,30 @@
+.notfound-container {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.notfound-container h1 {
+  font-size: 5rem;
+  color: #ff5757;
+}
+
+.notfound-container p {
+  font-size: 1.5rem;
+  color: #555;
+  margin: 10px 0;
+}
+
+.notfound-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ff5757;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.notfound-link:hover {
+  background-color: #e14b4b;
+}
