@@ -23,6 +23,8 @@ function Header() {
           </>
         )}
         {userId && <a href="/user_page">Conta</a>}
+        {userId && <a href="/shoppage">Shop</a>}
+        {userId && <a href="/minigames">Games</a>}
       </nav>
     </header>
   );

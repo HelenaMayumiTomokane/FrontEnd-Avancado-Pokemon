@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./UserPage.css";
 import * as api_account_user from "../../components/internal_api/account_user";
 import * as api_owner_pokemon from "../../components/internal_api/owner_pokemon";
+import * as api_cash_audit from "../../components/internal_api/cash_audit";
 import { useNavigate } from "react-router-dom";
 
 function UserPage() {
@@ -13,9 +14,11 @@ function UserPage() {
   const [message, setMessage] = useState("");
 
   const [pokemons, setPokemons] = useState([]); // lista de pokemons do usuário
+  const [cashAudit, setCashAudit] = useState([]); // histórico de cash
+  const [balance, setBalance] = useState(0); // saldo de cash
   const user_id = localStorage.getItem("user_id");
 
-  // Puxar dados do usuário e Pokémon
+  // Puxar dados do usuário, Pokémon e cash
   useEffect(() => {
     if (user_id) {
       api_account_user.APIGet_AccountUserByUser_ID(user_id).then(data => {
@@ -32,8 +35,25 @@ function UserPage() {
       api_owner_pokemon.APIGet_AllOwnerPokemon(user_id).then(data => {
         if (data) setPokemons(data);
       });
+
+      api_cash_audit.APIGet_AllCashAudit(user_id).then(data => {
+        if (data) {
+          setCashAudit(data);
+          updateBalance(data);
+        }
+      });
     }
   }, [user_id]);
+
+  // Função para consolidar saldo
+  const updateBalance = (cashData) => {
+    const saldo = cashData.reduce((acc, item) => {
+      return item.operation_type === "input"
+        ? acc + Number(item.value)
+        : acc - Number(item.value);
+    }, 0);
+    setBalance(saldo);
+  };
 
   // Atualizar usuário
   const handleUpdate = async () => {
@@ -123,7 +143,12 @@ function UserPage() {
             <option value="user">Usuário</option>
             <option value="admin">Administrador</option>
           </select>
-          
+
+          {/* Saldo de cash */}
+          <div className="cash-balance">
+            <h3>Saldo de Cash: {balance}</h3>
+          </div>
+
           {message && <p className="pokemon-message">{message}</p>}
         </div>
 

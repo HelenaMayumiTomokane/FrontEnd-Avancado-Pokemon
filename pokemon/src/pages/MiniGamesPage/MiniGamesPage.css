@@ -1,0 +1,33 @@
+/* src/pages/MiniGamesPage.css */
+.minigame-button-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.click-counter {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #3b4cca;
+}
+
+.round-button {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #ffcb05;
+  border: 3px solid #3b4cca;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.round-button:hover {
+  transform: scale(1.1);
+  background-color: #f5b700;
+}

@@ -1,0 +1,29 @@
+.shop-page {
+  padding: 20px;
+}
+
+.shop-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.shop-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  width: 200px;
+  text-align: center;
+}
+
+.shop-card button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.shop-message {
+  color: green;
+  margin-bottom: 10px;
+}
