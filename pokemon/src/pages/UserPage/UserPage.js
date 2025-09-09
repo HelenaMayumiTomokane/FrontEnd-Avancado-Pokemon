@@ -56,19 +56,27 @@ function UserPage() {
   };
 
   return (
-    <div className="pokemon-user-page">
-      <main className="pokemon-main">
-        <div className="pokemon-card">
-          <h2>Dados do Usuário</h2>
+    <div className="user-page">
+      <main className="main-user">
+        <div className="user-card">
+          <h1>Dados do Usuário</h1> 
+          <div>
+           <button onClick={handleUpdate}>Atualizar</button> <button onClick={handleDelete}>Deletar</button> <button onClick={handleLogout}>Logout</button>
+          </div>
+          <br></br>
           <label>Login:</label><input type="text" value={login} onChange={e => setLogin(e.target.value)} />
           <label>Nome:</label><input type="text" value={name} onChange={e => setName(e.target.value)} />
           <label>Senha:</label><input type="password" value={password} onChange={e => setPassword(e.target.value)} />
           <label>Tipo de Usuário:</label>
           <select value={role} onChange={e => setRole(e.target.value)}><option value="user">Usuário</option><option value="admin">Administrador</option></select>
-          <div style={{ marginTop: "16px" }}>
-            <button onClick={handleUpdate}>Atualizar</button> <button onClick={handleDelete}>Deletar</button> <button onClick={handleLogout}>Logout</button>
-          </div>
+          
           {message && <p className="pokemon-message">{message}</p>}
+        </div>
+
+        <hr></hr>
+
+        <div className="user-pokemon">
+            <h1>Pokemon Domesticados</h1>
         </div>
       </main>
     </div>

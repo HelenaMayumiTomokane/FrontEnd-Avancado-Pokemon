@@ -10,6 +10,10 @@ import RegisterUser from "./pages/RegisterUser/RegisterUser";
 import NotFound from "./pages/NotFound/NotFound";
 import UserPage from "./pages/UserPage/UserPage";
 
+import HabitatPage from "./pages/HabitatPage/HabitatPage";
+import PokemonPage from "./pages/PokemonPage/PokemonPage";
+
+
 function App() {
   return (
     <Router>
@@ -20,6 +24,10 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterUser />} />
           <Route path="/user_page" element={<UserPage />} />
+
+          <Route path="/habitats/:habitatName" element={<HabitatPage />} />
+          <Route path="/pokemon/:pokemonName" element={<PokemonPage />} />
+          
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

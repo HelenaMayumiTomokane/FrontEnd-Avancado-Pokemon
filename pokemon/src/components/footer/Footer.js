@@ -11,6 +11,12 @@ function Footer() {
           PokéAPI
         </a>
       </p>
+      <p>
+        Documentação do Projeto{" "}
+        <a href="http://127.0.0.1:5000/openapi" target="_blank" rel="noopener noreferrer">
+          OpenApi
+        </a>
+      </p>
     </footer>
   );
 }

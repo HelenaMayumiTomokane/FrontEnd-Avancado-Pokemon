@@ -1,5 +1,6 @@
 import React from "react";
 import "./Header.css";
+import logo from "../../images/logo.png";
 
 function Header() {
   const userId = localStorage.getItem("user_id"); // verifica se o usuário está logado
@@ -7,8 +8,10 @@ function Header() {
   return (
     <header className="header">
       <div className="header-logo">
-        <img src="/images/pokemon-logo.png" alt="Pokemon Logo" className="logo" />
-        <h1>Pokémon Manager</h1>
+        <a href="/">
+          <img src={logo} alt="Pokemon Logo" className="logo" />
+        </a>
+        <h1>Mundo Pokémon</h1>
       </div>
 
       <nav className="header-nav">

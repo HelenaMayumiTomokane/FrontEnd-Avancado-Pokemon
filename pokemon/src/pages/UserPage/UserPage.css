@@ -1,5 +1,5 @@
 /* Container principal */
-.pokemon-user-page {
+.user-page {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -9,36 +9,37 @@
 }
 
 /* Main */
-.pokemon-main {
+.main-user {
   flex: 1;
-  display: flex;
+  display: left;
   justify-content: center;
   align-items: flex-start;
   padding: var(--space-6);
 }
 
+
 /* Card do usuário */
-.pokemon-card {
+.user-card {
+  /*border: 2px solid var(--colour-page-text-third);
   background-color: white;
-  border: 2px solid var(--colour-page-text-third);
-  border-radius: var(--space-4);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: var(--space-4);*/
   padding: var(--space-6);
   width: 400px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
 }
 
-.pokemon-card h2 {
+.user-card h1 {
   color: var(--color-page-h1-primary);
   text-align: center;
   margin-bottom: var(--space-4);
 }
 
 /* Inputs */
-.pokemon-card input,
-.pokemon-card select {
+.user-card input,
+.user-card select {
   padding: var(--space-2);
   border: 1px solid black;
   border-radius: var(--space-1);
@@ -48,13 +49,13 @@
 }
 
 /* Labels */
-.pokemon-card label {
+.user-card label {
   font-weight: bold;
   margin-right: var(--space-2);
 }
 
 /* Botões */
-.pokemon-card button {
+.user-card button {
   background-color: var(--color-botton-primary);
   color: var(--color-botton-text-primary);
   border: none;
@@ -66,12 +67,12 @@
   transition: background-color 0.2s;
 }
 
-.pokemon-card button:hover {
+.user-card button:hover {
   background-color: var(--color-botton-primary-houver);
 }
 
 /* Mensagem */
-.pokemon-message {
+.user-message {
   margin-top: var(--space-3);
   color: var(--colour-page-text-secondary);
   font-weight: bold;

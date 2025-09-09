@@ -1,54 +1,54 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { APIGetAllHabitats } from "../../components/external_api/pokeapi/habitat";
 import "./Home.css";
 
 function Home() {
-  const [pokemon, setPokemon] = useState(null);
-  const [search, setSearch] = useState("ditto"); // Pokémon inicial
-  const [error, setError] = useState(null);
+  const [habitats, setHabitats] = useState([]);
+  const [selectedHabitat, setSelectedHabitat] = useState("");
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
-  // Função para buscar o Pokémon
-  const fetchPokemon = async (name) => {
-    try {
-      const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`);
-      setPokemon(response.data);
-      setError(null);
-    } catch (err) {
-      setError("Pokémon não encontrado!");
-      setPokemon(null);
-    }
-  };
-
-  // Buscar o primeiro Pokémon ao carregar
   useEffect(() => {
-    fetchPokemon(search);
+    const fetchHabitats = async () => {
+      try {
+        const data = await APIGetAllHabitats();
+        setHabitats(data);
+      } catch (error) {
+        console.error("Erro ao buscar habitats:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchHabitats();
   }, []);
 
+  const handleSelectChange = (e) => setSelectedHabitat(e.target.value);
+
+  const handleGoClick = () => {
+    if (selectedHabitat) navigate(`/habitats/${selectedHabitat}`);
+  };
+
+  if (loading) return <p className="loading">Carregando habitats...</p>;
+
   return (
-    <div className="home-container">
-      <h1>Pokémon Finder</h1>
+    <div className="habitat-list-container">
+      <h1>Habitats Pokémon</h1>
+      <p className="subtitle">Selecione um habitat para explorar os Pokémons</p>
 
-      <div className="search-container">
-        <input
-          type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Digite o nome do Pokémon"
-        />
-        <button onClick={() => fetchPokemon(search)}>Buscar</button>
+      <div className="habitat-dropdown">
+        <select value={selectedHabitat} onChange={handleSelectChange}>
+          <option value="">-- Selecione um habitat --</option>
+          {habitats.map((habitat) => (
+            <option key={habitat.name} value={habitat.name}>
+              {habitat.name}
+            </option>
+          ))}
+        </select>
+        <button onClick={handleGoClick} disabled={!selectedHabitat}>
+          Ir
+        </button>
       </div>
-
-      {error && <p className="error">{error}</p>}
-
-      {pokemon && (
-        <div className="pokemon-card">
-          <h2>{pokemon.name.toUpperCase()}</h2>
-          <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-          <p><strong>Altura:</strong> {pokemon.height}</p>
-          <p><strong>Peso:</strong> {pokemon.weight}</p>
-          <p><strong>ID:</strong> {pokemon.id}</p>
-        </div>
-      )}
     </div>
   );
 }

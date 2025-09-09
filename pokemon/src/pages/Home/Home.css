@@ -1,26 +1,57 @@
-.home-container {
+/* ===== Container Geral ===== */
+.habitat-list-container {
+  padding: var(--space-6);
   text-align: center;
-  padding: 20px;
+  min-height: 100vh;
+  background: var(--color-page-background);
 }
 
-h1 {
+.habitat-list-container h1 {
   color: var(--color-page-h1-primary);
+  margin-bottom: var(--space-4);
 }
 
-.search-container {
-  margin-top: 20px;
+.subtitle {
+  color: var(--colour-page-text-third);
+  margin-bottom: var(--space-6);
+  font-size: 18px;
 }
 
-button {
-  background-color: var(--color-botton-primary);
-  color: white;
-  border: none;
-  padding: 10px 20px;
+/* ===== Grid de Habitats ===== */
+.habitat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-6);
+  justify-items: center;
+}
+
+.habitat-card {
+  background: white;
+  border: 2px solid var(--colour-page-text-third);
+  border-radius: var(--space-3);
+  padding: var(--space-4);
+  text-align: center;
   cursor: pointer;
-  border-radius: 8px;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  width: 150px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-button:hover {
-  background-color: var(--color-botton-primary-houver);
+.habitat-card:hover {
+  background: var(--color-botton-primary);
+  color: var(--color-botton-text-primary);
+  transform: scale(1.05);
+}
+
+.habitat-card img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: var(--space-2);
+}
+
+.loading {
+  font-size: 20px;
+  color: var(--colour-page-text-third);
+  text-align: center;
+  margin-top: 50px;
 }
