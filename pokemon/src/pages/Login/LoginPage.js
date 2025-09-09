@@ -19,7 +19,8 @@ function LoginPage() {
       if (response && response.user_id) {
         setMessage("Login realizado com sucesso!");
         localStorage.setItem("user_id", response.user_id);
-        navigate("/"); // navegação sem reload
+        navigate("/"); 
+        window.location.reload()
       } else {
         setMessage(response?.message || "Erro no login. Tente novamente.");
       }
