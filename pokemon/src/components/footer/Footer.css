@@ -1,6 +1,6 @@
 .footer {
-  background-color: var(--color-header);
-  color: white;
+  background-color: var(--color-footer-backgroud);
+  color: var(--color-footer-text-primary);
   text-align: center;
   padding: var(--space-4);
   font-size: 0.9rem;
@@ -8,12 +8,12 @@
 }
 
 .footer a {
-  color: var(--color-primary);
+  color: var(--color-footer-text-primary);
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 .footer a:hover {
-  color: var(--color-accent);
+  color: var(--color-footer-text-secondary);
 }

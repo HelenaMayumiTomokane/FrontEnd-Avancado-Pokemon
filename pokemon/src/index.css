@@ -1,12 +1,34 @@
 :root {
-  /* 🎨 Paleta de cores */
-  --color-primary: #FFCC00;
-  --color-secondary: #E63946;
-  --color-accent: #3B82F6;
-  --color-header: #1D3557;
-  --color-background: #F8FAFC;
-  --color-text: #333333;
-  --color-gray: #CBD5E1;
+  /* 🎨 Paleta de cores do cabeçalho*/
+  --color-header-backgroud: #1D3557;
+
+  --color-header-text-primary: white;
+  --color-header-text-secondary: #FFCC00;
+
+  /* 🎨 Paleta de cores do rodapé*/
+  --color-footer-backgroud: #1D3557;
+
+  --color-footer-text-primary: white;
+  --color-footer-text-secondary: #FFCC00;
+
+  /* 🎨 Paleta de cores da página*/
+  --color-page-background: #F8FAFC;
+
+  --colour-page-text-primary: #333333;
+  --colour-page-text-secondary: #FFCC00;
+  --colour-page-text-third: #555;
+
+  --color-page-h1-primary: #FFCC00;
+  --color-page-h2-primary: #333;
+  
+
+
+  /* Paleta de cores dos botões*/
+  --color-botton-primary: #ff5757;
+  --color-botton-primary-houver: #e14b4b;
+
+  --color-botton-text-primary: white;
+
 
   /* 🧾 Tipografia */
   --font-family: 'Roboto', sans-serif;
@@ -26,7 +48,20 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--color-background);
+  background-color: var(--color-page-background);
   font-family: var(--font-family);
-  color: var(--color-text);
+  color: var(--colour-page-text-primary);
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+p {
+  font-size: 18px;
+}
+
+button{
+  cursor: pointer;
+}
+

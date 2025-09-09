@@ -1,11 +1,10 @@
 .home-container {
-  background-color: var(--color-background);
   text-align: center;
   padding: 20px;
 }
 
 h1 {
-  color: var(--color-primary);
+  color: var(--color-page-h1-primary);
 }
 
 .search-container {
@@ -13,7 +12,7 @@ h1 {
 }
 
 button {
-  background-color: var(--color-secondary);
+  background-color: var(--color-botton-primary);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -23,5 +22,5 @@ button {
 }
 
 button:hover {
-  background-color: var(--color-accent);
+  background-color: var(--color-botton-primary-houver);
 }

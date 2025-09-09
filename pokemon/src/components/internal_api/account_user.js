@@ -2,12 +2,18 @@ const baseURL = "http://127.0.0.1:5000"
 
 
 /*------------------- API com a tabela Account User ---------------------------*/
-export function APIGet_AccountUser(){
-    return fetch(`${baseURL}/account_user`)
+export function APIGet_AccountUserByLoginPassword(login,password){
+    return fetch(`${baseURL}/account_user/login_password?login=${login}&password=${password}`)
         .then(response => response.json())
         .then(data => data)
 }
 
+
+export function APIGet_AccountUserByUser_ID(user_id){
+    return fetch(`${baseURL}/account_user/user_id?user_id=${user_id}`)
+        .then(response => response.json())
+        .then(data => data)
+}
 
 
 export function APIPost_AccountUser(name,password,login,role){

@@ -1,33 +1,30 @@
 import React, { useState } from "react";
 import "./LoginPage.css";
+import * as api_account_user from "../../components/internal_api/account_user";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setMessage("");
 
     try {
-      const response = await fetch("http://127.0.0.1:5000/account_user/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ login, password }),
-      });
+      const response = await api_account_user.APIGet_AccountUserByLoginPassword(login, password);
 
-      const data = await response.json();
-
-      if (response.ok) {
+      if (response && response.user_id) {
         setMessage("Login realizado com sucesso!");
-        localStorage.setItem("user_id", data.user_id);
-        window.location.href = "/";
+        localStorage.setItem("user_id", response.user_id);
+        navigate("/"); // navegação sem reload
       } else {
-        setMessage(data.message || "Erro no login. Tente novamente.");
+        setMessage(response?.message || "Erro no login. Tente novamente.");
       }
     } catch (error) {
+      console.error(error);
       setMessage("Erro de conexão com o servidor.");
     }
   };
