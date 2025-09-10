@@ -2,11 +2,10 @@ import React from "react";
 
 function PokemonList({ pokemons, setPokemons, onUpdatePokemonName, onDeletePokemon }) {
   return (
-    <div className="user-pokemon">
-      <h1>Pokémon Domesticados</h1>
-      <div className="pokemon-grid">
+    <div id="user-pokemon">
+      <div id="pokemon-grid">
         {pokemons.map(pokemon => (
-          <div key={pokemon.pokemon_id} className="pokemon-card">
+          <div key={pokemon.pokemon_id} id="pokemon-card">
             <img
               src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.pokemon_id_external_api}.png`}
               alt={pokemon.pokemon_species}

@@ -1,57 +1,83 @@
-/* ===== Container Geral ===== */
-.habitat-list-container {
-  padding: var(--space-6);
-  text-align: center;
-  min-height: 100vh;
+/* Container principal */
+#home-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
   background: var(--color-page-background);
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
-.habitat-list-container h1 {
-  color: var(--color-page-h1-primary);
-  margin-bottom: var(--space-4);
-}
-
-.subtitle {
-  color: var(--colour-page-text-third);
-  margin-bottom: var(--space-6);
-  font-size: 18px;
-}
-
-/* ===== Grid de Habitats ===== */
-.habitat-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: var(--space-6);
-  justify-items: center;
-}
-
-.habitat-card {
+/* Card central */
+#home-card {
   background: white;
-  border: 2px solid var(--colour-page-text-third);
-  border-radius: var(--space-3);
-  padding: var(--space-4);
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: 150px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 500px;
+  width: 100%;
+  transition: transform 0.2s ease-in-out;
 }
 
-.habitat-card:hover {
-  background: var(--color-botton-primary);
-  color: var(--color-botton-text-primary);
-  transform: scale(1.05);
+#home-card:hover {
+  transform: translateY(-5px);
 }
 
-.habitat-card img {
-  width: 80px;
-  height: 80px;
-  margin-bottom: var(--space-2);
+/* Título */
+#home-title {
+  font-size: 2rem;
+  color: var(--color-page-h1-primary);
+  margin-bottom: 15px;
 }
 
-.loading {
-  font-size: 20px;
+/* Subtítulo */
+#home-subtitle {
+  font-size: 1.2rem;
   color: var(--colour-page-text-third);
+  margin-bottom: 25px;
+}
+
+/* Área do selector */
+#habitat-selector {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Select */
+#select-box {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+/* Botão */
+#go-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--color-botton-primary);
+  color: var(--color-botton-text-primary);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#go-button:hover:enabled {
+  background-color: var(--color-botton-primary-houver);
+}
+
+#go-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Loading */
+#loading-text {
   text-align: center;
-  margin-top: 50px;
+  font-size: 1.2rem;
+  color: var(--colour-page-text-primary);
 }

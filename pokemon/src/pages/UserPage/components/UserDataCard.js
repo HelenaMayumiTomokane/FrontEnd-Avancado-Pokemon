@@ -12,8 +12,7 @@ function UserDataCard({
   handleLogout
 }) {
   return (
-    <div className="user-card">
-      <h1>Dados do Usuário</h1>
+    <div id="user-card">
       <div>
         <button onClick={handleUpdate}>Atualizar</button>
         <button onClick={handleDelete}>Deletar</button>
@@ -37,11 +36,11 @@ function UserDataCard({
       </select>
 
       {/* Saldo de cash */}
-      <div className="cash-balance">
+      <div id="cash-balance">
         <h3>Saldo de Cash: {balance}</h3>
       </div>
 
-      {message && <p className="pokemon-message">{message}</p>}
+      {message && <p id="pokemon-message">{message}</p>}
     </div>
   );
 }

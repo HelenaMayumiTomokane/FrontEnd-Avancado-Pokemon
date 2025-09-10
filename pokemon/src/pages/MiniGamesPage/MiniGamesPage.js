@@ -1,4 +1,3 @@
-// src/pages/MiniGamesPage.js
 import React, { useState } from "react";
 import "./MiniGamesPage.css";
 import * as api_cash_audit from "../../components/internal_api/cash_audit";
@@ -10,9 +9,7 @@ function MiniGamesPage() {
 
   const user_id = localStorage.getItem("user_id");
 
-  const handleClick = () => {
-    setCount(prev => prev + 1);
-  };
+  const handleClick = () => setCount(prev => prev + 1);
 
   const handleFinish = async () => {
     const finalValue = count * 2; // multiplicador definido
@@ -21,36 +18,37 @@ function MiniGamesPage() {
     try {
       const data = await api_cash_audit.APIPost_CashAudit(user_id, "input", finalValue);
       if (data && data.cash_id) {
-        setMessage(`Mini game finalizado! Você ganhou ${finalValue} cash.`);
-        setCount(0); // reset contador
+        setMessage(`🎉 Mini game finalizado! Você ganhou ${finalValue} cash.`);
+        setCount(0);
         setValue(0);
       } else {
-        setMessage("Erro ao finalizar mini game.");
+        setMessage("❌ Erro ao finalizar mini game.");
       }
     } catch (error) {
       console.error(error);
-      setMessage("Erro de conexão.");
+      setMessage("❌ Erro de conexão.");
     }
   };
 
   return (
-    <div className="minigame-button-page">
-      <div className="click-counter">
+    <div id="minigame-page">
+      <h1 id="minigame-title">Mini Game Pokémon</h1>
+
+      <div id="counter-display">
         {count === 0 ? "Clique no botão!" : `Você clicou ${count} vezes`}
       </div>
 
-      <button className="round-button" onClick={handleClick}>
+      <button id="round-button" onClick={handleClick}>
         Aperte-me
       </button>
 
-      <div className="finish-section">
-        <br></br>
-        <button className="finish-button" onClick={handleFinish}>
+      <div id="finish-section">
+        <button id="finish-button" onClick={handleFinish}>
           Finalizar Mini Game
         </button>
       </div>
 
-      {message && <p className="pokemon-message">{message}</p>}
+      {message && <p id="minigame-message">{message}</p>}
     </div>
   );
 }

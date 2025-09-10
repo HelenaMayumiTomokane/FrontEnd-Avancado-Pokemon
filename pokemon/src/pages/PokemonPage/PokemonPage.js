@@ -8,13 +8,14 @@ function PokemonPage() {
   const [pokemonData, setPokemonData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Supondo que você tenha o user_id do usuário logado
-  const user_id = localStorage.getItem("user_id"); 
+  const user_id = localStorage.getItem("user_id"); // ID do usuário logado
 
   useEffect(() => {
     const fetchPokemon = async () => {
       try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}/`);
+        const response = await fetch(
+          `https://pokeapi.co/api/v2/pokemon/${pokemonName}/`
+        );
         const data = await response.json();
         setPokemonData(data);
       } catch (error) {
@@ -27,34 +28,61 @@ function PokemonPage() {
   }, [pokemonName]);
 
   const handleCapture = async () => {
-    if (!user_id) return alert("Você precisa estar logado para capturar Pokémon!");
+    if (!user_id) {
+      alert("⚠ Você precisa estar logado para capturar Pokémon!");
+      return;
+    }
 
     try {
-      const response = await APIPost_OwnerPokemon(user_id, pokemonData.id, pokemonData.name);
-      alert(`Pokémon capturado com sucesso! ID: ${response.pokemon_id}`);
+      const response = await APIPost_OwnerPokemon(
+        user_id,
+        pokemonData.id,
+        pokemonData.name
+      );
+      alert(`🎉 ${pokemonData.name.toUpperCase()} capturado com sucesso!`);
     } catch (error) {
       console.error("Erro ao capturar Pokémon:", error);
-      alert("Erro ao capturar Pokémon.");
+      alert("❌ Erro ao capturar Pokémon.");
     }
   };
 
-  if (loading) return <p>Carregando Pokémon...</p>;
-  if (!pokemonData) return <p>Pokémon não encontrado!</p>;
+  if (loading)
+    return <p id="loading">Carregando informações do Pokémon...</p>;
+
+  if (!pokemonData) return <p id="error">Pokémon não encontrado!</p>;
 
   return (
-    <div className="pokemon-page-container">
-      <h1>{pokemonData.name}</h1>
-      <img
-        src={pokemonData.sprites.front_default}
-        alt={pokemonData.name}
-        className="pokemon-image"
-      />
-      <p>Tipo(s): {pokemonData.types.map(t => t.type.name).join(", ")}</p>
-      <p>Altura: {pokemonData.height / 10} m</p>
-      <p>Peso: {pokemonData.weight / 10} kg</p>
-      <button className="capture-button" onClick={handleCapture}>
-        Capturar
-      </button>
+    <div id="pokemon-page-container">
+      <div id="pokemon-card">
+        <h1 id="pokemon-name">
+          {pokemonData.name.charAt(0).toUpperCase() + pokemonData.name.slice(1)}
+        </h1>
+
+        <div id="pokemon-info">
+          <img
+            src={pokemonData.sprites.front_default}
+            alt={pokemonData.name}
+            id="pokemon-image"
+          />
+
+          <div id="pokemon-details">
+            <p>
+              <strong>Tipo:</strong>{" "}
+              {pokemonData.types.map((t) => t.type.name).join(", ")}
+            </p>
+            <p>
+              <strong>Altura:</strong> {pokemonData.height / 10} m
+            </p>
+            <p>
+              <strong>Peso:</strong> {pokemonData.weight / 10} kg
+            </p>
+          </div>
+        </div>
+
+        <button id="capture-button" onClick={handleCapture}>
+          🎯 Capturar Pokémon
+        </button>
+      </div>
     </div>
   );
 }

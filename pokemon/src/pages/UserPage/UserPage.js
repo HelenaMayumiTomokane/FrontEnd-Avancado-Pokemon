@@ -60,8 +60,6 @@ function UserPage() {
   }, [user_id]);
 
   /* ------------------- FUNÇÕES AUXILIARES ------------------- */
-
-  // Atualizar saldo
   const updateBalance = (cashData) => {
     const saldo = cashData.reduce((acc, item) => {
       return item.operation_type === "input"
@@ -71,7 +69,6 @@ function UserPage() {
     setBalance(saldo);
   };
 
-  // Atualizar apelido do Pokémon
   const handleUpdatePokemonName = async (pokemon_id, newName) => {
     try {
       const pokemon = pokemons.find(p => p.pokemon_id === pokemon_id);
@@ -94,7 +91,6 @@ function UserPage() {
     }
   };
 
-  // Remover Pokémon
   const handleDeletePokemon = async (pokemon_id) => {
     if (!window.confirm("Deseja realmente remover este Pokémon?")) return;
     try {
@@ -110,7 +106,6 @@ function UserPage() {
   };
 
   /* ------------------- FUNÇÕES DE USUÁRIO ------------------- */
-
   const handleUpdate = async () => {
     try {
       const data = await api_account_user.APIPut_AccountUser(user_id, login, password, name, role);
@@ -144,39 +139,41 @@ function UserPage() {
 
   /* ------------------- RENDER ------------------- */
   return (
-    <div className="user-page">
-      <main className="main-user">
-        {/* Dados do usuário */}
-        <UserDataCard
-          login={login}
-          setLogin={setLogin}
-          password={password}
-          setPassword={setPassword}
-          name={name}
-          setName={setName}
-          role={role}
-          setRole={setRole}
-          balance={balance}
-          message={message}
-          handleUpdate={handleUpdate}
-          handleDelete={handleDelete}
-          handleLogout={handleLogout}
-        />
+    <div id="user-page">
+      <main id="main-user">
+        <section id="user-card">
+          <h2 id="section-title">Dados do Usuário</h2>
+          <UserDataCard
+            login={login}
+            setLogin={setLogin}
+            password={password}
+            setPassword={setPassword}
+            name={name}
+            setName={setName}
+            role={role}
+            setRole={setRole}
+            balance={balance}
+            message={message}
+            handleUpdate={handleUpdate}
+            handleDelete={handleDelete}
+            handleLogout={handleLogout}
+          />
+        </section>
 
-        <hr />
+        <section id="pokemon-card">
+          <h2 id="section-title">Pokémons Capturados</h2>
+          <PokemonList
+            pokemons={pokemons}
+            setPokemons={setPokemons}
+            onUpdatePokemonName={handleUpdatePokemonName}
+            onDeletePokemon={handleDeletePokemon}
+          />
+        </section>
 
-        {/* Lista de Pokémons */}
-        <PokemonList
-          pokemons={pokemons}
-          setPokemons={setPokemons}
-          onUpdatePokemonName={handleUpdatePokemonName}
-          onDeletePokemon={handleDeletePokemon}
-        />
-
-        <hr />
-
-        {/* Lista de Itens Comprados */}
-        <BagList userBag={userBag} />
+        <section id="bag-card">
+          <h2 id="section-title">Itens Comprados</h2>
+          <BagList userBag={userBag} />
+        </section>
       </main>
     </div>
   );

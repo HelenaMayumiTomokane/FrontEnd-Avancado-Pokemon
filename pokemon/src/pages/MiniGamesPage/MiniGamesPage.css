@@ -1,33 +1,72 @@
-/* src/pages/MiniGamesPage.css */
-.minigame-button-page {
+#minigame-page {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f5f5f5;
+  justify-content: center;
+  min-height: 80vh;
+  background-color: var(--color-page-background);
+  padding: 20px;
+  font-family: var(--font-family);
+  text-align: center;
 }
 
-.click-counter {
+#minigame-title {
+  color: var(--color-header-backgroud);
   margin-bottom: 20px;
-  font-size: 24px;
-  font-weight: bold;
-  color: #3b4cca;
 }
 
-.round-button {
-  width: 150px;
-  height: 150px;
+/* Contador */
+#counter-display {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: var(--colour-page-text-third);
+}
+
+/* Botão principal */
+#round-button {
+  background-color: var(--color-botton-primary);
+  color: var(--color-botton-text-primary);
+  border: none;
+  padding: 20px 30px;
   border-radius: 50%;
-  font-size: 20px;
+  font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
-  background-color: #ffcb05;
-  border: 3px solid #3b4cca;
-  transition: transform 0.2s, background-color 0.2s;
+  transition: transform 0.2s ease, background 0.3s ease;
 }
 
-.round-button:hover {
+#round-button:hover {
+  background-color: var(--color-botton-primary-houver);
   transform: scale(1.1);
-  background-color: #f5b700;
+}
+
+/* Seção de finalizar */
+#finish-section {
+  margin-top: 30px;
+}
+
+#finish-button {
+  background-color: var(--color-header-backgroud);
+  color: var(--color-header-text-primary);
+  padding: 12px 25px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#finish-button:hover {
+  background-color: #16325c;
+  transform: scale(1.05);
+}
+
+/* Mensagem */
+#minigame-message {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--colour-page-text-secondary);
 }

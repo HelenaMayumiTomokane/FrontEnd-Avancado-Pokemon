@@ -11,11 +11,11 @@ function ShopPage() {
   const [cart, setCart] = useState([]);
   const [message, setMessage] = useState("");
 
-  // Puxar saldo e berries
+  /* ------------------- USEEFFECT ------------------- */
   useEffect(() => {
     if (user_id) {
-      // saldo
-      api_cash_audit.APIGet_AllCashAudit(user_id).then(data => {
+      // Pega o saldo
+      api_cash_audit.APIGet_AllCashAudit(user_id).then((data) => {
         if (data) {
           const saldo = data.reduce((acc, item) => {
             return item.operation_type === "input"
@@ -26,15 +26,16 @@ function ShopPage() {
         }
       });
 
-      // berries
+      // Pega as berries
       const fetchItems = async () => {
         try {
           const results = await api_external_berry.APIGetBerry();
-          // adiciona preço aleatório 10-50
-          setItems(results.map(b => ({
-            ...b,
-            price: Math.floor(Math.random() * 41) + 10 // preço aleatório 10-50
-          })));
+          setItems(
+            results.map((b) => ({
+              ...b,
+              price: Math.floor(Math.random() * 41) + 10,
+            }))
+          );
         } catch (err) {
           console.error(err);
         }
@@ -43,15 +44,18 @@ function ShopPage() {
     }
   }, [user_id]);
 
-  // Adicionar ao carrinho
-  const handleAddToCart = (item) => setCart(prev => [...prev, item]);
+  /* ------------------- FUNÇÕES ------------------- */
+  const handleAddToCart = (item) => {
+    setCart((prev) => [...prev, item]);
+    setMessage(`${item.name} adicionado ao carrinho!`);
+  };
 
-  // Remover do carrinho
-  const handleRemoveFromCart = (index) => setCart(prev => prev.filter((_, i) => i !== index));
+  const handleRemoveFromCart = (index) =>
+    setCart((prev) => prev.filter((_, i) => i !== index));
 
-  // Finalizar compra
   const handleCheckout = async () => {
     const total = cart.reduce((acc, item) => acc + item.price, 0);
+
     if (total > balance) {
       setMessage("Saldo insuficiente para finalizar o carrinho!");
       return;
@@ -59,50 +63,74 @@ function ShopPage() {
 
     try {
       for (let item of cart) {
-        // 2) Adicionar na UserBag com item_id e item_name
-        await api_user_bag.APIPost_UserBag(user_id,"input",item.name,null);
-        // 1) Debitar cash
+        await api_user_bag.APIPost_UserBag(user_id, "input", item.name, null);
         await api_cash_audit.APIPost_CashAudit(user_id, "output", item.price);
       }
 
-      setBalance(prev => prev - total);
-      setMessage(`Compra realizada! Gastou ${total} cash e itens adicionados à sua bag.`);
+      setBalance((prev) => prev - total);
       setCart([]);
+      setMessage(`Compra realizada! Você gastou ${total} cash.`);
     } catch (err) {
       console.error(err);
       setMessage("Erro ao finalizar a compra.");
     }
   };
 
+  /* ------------------- RENDER ------------------- */
   return (
-    <div className="shop-page">
-      <h1>Loja de Berries</h1>
-      <h3>Saldo: {balance} cash</h3>
-      {message && <p className="shop-message">{message}</p>}
+    <div id="shop-page">
+      <header id="shop-header">
+        <h1>Loja de Berries</h1>
+        <div id="balance-box">
+          <p>
+            <strong>Saldo:</strong> {balance} cash
+          </p>
+        </div>
+      </header>
 
-      <div className="shop-grid">
-        {items.map(item => (
-          <div key={item.id} className="shop-card">
+      {message && <div id="shop-message">{message}</div>}
+
+      <div id="shop-grid">
+        {items.map((item) => (
+          <div key={item.id} id="shop-card">
+            <img
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${item.name}.png`}
+              alt={item.name}
+              id="shop-item-image"
+              onError={(e) => (e.target.style.display = "none")}
+            />
             <h4>{item.name}</h4>
-            <p>Preço: {item.price} cash</p>
-            <button onClick={() => handleAddToCart(item)}>Adicionar ao carrinho</button>
+            <p id="price">{item.price} cash</p>
+            <button id="add-to-cart-btn" onClick={() => handleAddToCart(item)}>
+              Adicionar ao Carrinho
+            </button>
           </div>
         ))}
       </div>
 
       {cart.length > 0 && (
-        <div className="cart-section">
-          <h2>Carrinho</h2>
+        <div id="cart-section">
+          <h2>🛒 Carrinho</h2>
           <ul>
             {cart.map((item, index) => (
               <li key={index}>
-                {item.name} - {item.price} cash
-                <button onClick={() => handleRemoveFromCart(index)}>Remover</button>
+                <span>{item.name}</span>
+                <span>{item.price} cash</span>
+                <button id="remove-btn" onClick={() => handleRemoveFromCart(index)}>
+                  ✖
+                </button>
               </li>
             ))}
           </ul>
-          <p>Total: {cart.reduce((acc, item) => acc + item.price, 0)} cash</p>
-          <button onClick={handleCheckout}>Finalizar Compra</button>
+          <div id="cart-footer">
+            <p>
+              Total:{" "}
+              <strong>{cart.reduce((acc, item) => acc + item.price, 0)} cash</strong>
+            </p>
+            <button id="checkout-btn" onClick={handleCheckout}>
+              Finalizar Compra
+            </button>
+          </div>
         </div>
       )}
     </div>

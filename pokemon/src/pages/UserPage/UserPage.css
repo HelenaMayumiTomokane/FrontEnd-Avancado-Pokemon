@@ -1,106 +1,62 @@
-/* Container principal */
-.user-page {
+/* Container principal da página do usuário */
+#user-page {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  background: var(--color-page-background);
   min-height: 100vh;
-  background-color: var(--color-page-background);
-  font-family: var(--font-family);
+  box-sizing: border-box;
+}
+
+/* Área principal */
+#main-user {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px; /* Espaço entre os cards */
+  max-width: 1200px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ajusta os cards individuais */
+#user-card,
+#pokemon-card,
+#bag-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+#user-card:hover,
+#pokemon-card:hover,
+#bag-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Lista de pokémons e itens */
+#pokemon-card .pokemon-list,
+#bag-card .bag-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Títulos internos dos cards */
+#user-card h3,
+#pokemon-card h3,
+#bag-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  text-align: center;
   color: var(--colour-page-text-primary);
 }
 
-/* Main */
-.main-user {
-  flex: 1;
-  display: left;
-  justify-content: center;
-  align-items: flex-start;
-  padding: var(--space-6);
-}
-
-
-/* Card do usuário */
-.user-card {
-  /*border: 2px solid var(--colour-page-text-third);
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  border-radius: var(--space-4);*/
-  padding: var(--space-6);
-  width: 400px;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-.user-card h1 {
-  color: var(--color-page-h1-primary);
-  text-align: center;
-  margin-bottom: var(--space-4);
-}
-
-/* Inputs */
-.user-card input,
-.user-card select {
-  padding: var(--space-2);
-  border: 1px solid black;
-  border-radius: var(--space-1);
-  width: 100%;
-  box-sizing: border-box;
-  font-size: 16px;
-}
-
-/* Labels */
-.user-card label {
-  font-weight: bold;
-  margin-right: var(--space-2);
-}
-
-/* Botões */
-.user-card button {
-  background-color: var(--color-botton-primary);
-  color: var(--color-botton-text-primary);
-  border: none;
-  border-radius: var(--space-2);
-  padding: var(--space-2) var(--space-4);
-  margin-right: var(--space-2);
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.user-card button:hover {
-  background-color: var(--color-botton-primary-houver);
-}
-
-/* Mensagem */
-.user-message {
-  margin-top: var(--space-3);
-  color: var(--colour-page-text-secondary);
-  font-weight: bold;
-  text-align: center;
-}
-
-
-
-.user-bag {
-  margin-top: 20px;
-}
-
-.bag-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 15px;
-}
-
-.bag-card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
-  background: #f9f9f9;
-  text-align: center;
-  transition: 0.3s;
-}
-
-.bag-card:hover {
-  background: #f0f0f0;
-  transform: scale(1.05);
+/* Responsivo */
+@media (max-width: 768px) {
+  #main-user {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
 }
