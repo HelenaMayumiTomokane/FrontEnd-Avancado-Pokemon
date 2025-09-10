@@ -78,3 +78,29 @@
   font-weight: bold;
   text-align: center;
 }
+
+
+
+.user-bag {
+  margin-top: 20px;
+}
+
+.bag-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+}
+
+.bag-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  background: #f9f9f9;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.bag-card:hover {
+  background: #f0f0f0;
+  transform: scale(1.05);
+}
