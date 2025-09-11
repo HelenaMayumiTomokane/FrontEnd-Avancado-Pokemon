@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./LoginPage.css";
-import * as api_account_user from "../../components/internal_api/account_user";
+import * as api_account_user from "../../components/Internal_API/Account_User";
 import { useNavigate } from "react-router-dom";
 
 function LoginPage() {

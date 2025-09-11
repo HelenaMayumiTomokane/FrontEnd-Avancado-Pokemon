@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./RegisterUser.css";
-import * as api_account_user from "../../components/internal_api/account_user";
+import * as api_account_user from "../../components/Internal_API/Account_User";
 import { useNavigate } from "react-router-dom";
 
 

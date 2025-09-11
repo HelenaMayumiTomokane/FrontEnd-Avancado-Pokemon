@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { APIGetAllHabitatsPokemon } from "../../components/external_api/pokeapi/habitat";
+import { APIGetAllHabitatsPokemon } from "../../components/External_API/Habitat_PokeAPI";
 import "./HabitatPage.css";
 
 function HabitatPage() {

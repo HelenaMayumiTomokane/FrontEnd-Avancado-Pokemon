@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { APIPost_OwnerPokemon } from "../../components/internal_api/owner_pokemon";
+import { APIPost_OwnerPokemon } from "../../components/Internal_API/Owner_Pokemon";
 import "./PokemonPage.css";
 
 function PokemonPage() {

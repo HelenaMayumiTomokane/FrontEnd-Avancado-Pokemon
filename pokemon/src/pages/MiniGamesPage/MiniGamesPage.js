@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./MiniGamesPage.css";
-import * as api_cash_audit from "../../components/internal_api/cash_audit";
+import * as api_cash_audit from "../../components/Internal_API/Cash_Audit";
 
 function MiniGamesPage() {
   const [count, setCount] = useState(0);
