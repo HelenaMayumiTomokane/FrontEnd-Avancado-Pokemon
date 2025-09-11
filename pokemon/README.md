@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+# FrontEnd Avançado Pokémon
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🎮 Descrição
 
-## Available Scripts
+Este projeto é uma aplicação web desenvolvida com **Angular**, permitindo aos usuários buscar e visualizar informações detalhadas sobre Pokémons usando a [PokéAPI](https://pokeapi.co/).  
+A interface é responsiva, intuitiva e focada na experiência do usuário, exibindo dados como nome, tipo, habilidades e estatísticas dos Pokémons.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Funcionalidades
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1. Busca de Pokémons
+- Pesquisar Pokémons por nome ou ID (`GET`)
+- Visualizar detalhes completos de cada Pokémon
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 2. Componentes de Interface
+- Cards de Pokémons
+- Barra de pesquisa interativa
+- Interface responsiva para desktop e dispositivos móveis
 
-### `npm test`
+### 3. Serviços
+- Comunicação com a PokéAPI para obter dados em tempo real
+- Serviços organizados para facilitar manutenção e escalabilidade
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 4. Testes
+- Testes unitários dos principais componentes usando Angular/Karma
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🧪 Tecnologias Utilizadas
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Frontend:** Angular  
+- **Estilização:** CSS  
+- **Gerenciamento de pacotes:** npm  
+- **API Externa:** [PokéAPI](https://pokeapi.co/)  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 📁 Estrutura do Projeto
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```plaintext
+FrontEnd-Avancado-Pokemon/
+│
+├── pokemon/                        # Módulo Pokémon
+│   ├── components/                 # Componentes reutilizáveis
+│   │   ├── pokemon-card/           # Exibe informações de um Pokémon
+│   │   └── search-bar/             # Barra de pesquisa de Pokémons
+│   │
+│   ├── services/                   # Serviços para comunicação com a API
+│   │   └── pokemon.service.ts
+│   │
+│   ├── pokemon.module.ts           # Módulo principal do Pokémon
+│   └── pokemon-routing.module.ts   # Definições de rotas do módulo
+│
+├── src/
+│   ├── app/
+│   │   ├── app.component.ts        # Componente raiz da aplicação
+│   │   └── app.module.ts           # Módulo principal da aplicação
+│   │
+│   ├── assets/                     # Imagens e recursos estáticos
+│   │   └── logo.png
+│   │
+│   └── environments/               # Configurações de ambiente
+│       ├── environment.ts          # Ambiente de desenvolvimento
+│       └── environment.prod.ts     # Ambiente de produção
+│
+├── package.json                    # Dependências e scripts do projeto
+├── package-lock.json               # Bloqueio de versões das dependências
+└── README.md                       # Este arquivo
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## ⚙️ Instalação e Execução
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Pré-requisitos
+Node.js (v14 ou superior)
+npm
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Passos
+1. Clone o repositório:
+git clone https://github.com/HelenaMayumiTomokane/FrontEnd-Avancado-Pokemon.git
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Acesse a pasta do projeto:
+cd FrontEnd-Avancado-Pokemon
 
-### Code Splitting
+3. Instale as dependências:
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+4. Execute a aplicação:
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+A aplicação estará disponível em: http://localhost:4200
 
-### Making a Progressive Web App
+## 🌐 APIs Externas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+A aplicação consome dados da [PokéAPI](https://pokeapi.co/), utilizando os seguintes endpoints:
 
-### Advanced Configuration
+### Base URL
+https://pokeapi.co/api/v2
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Endpoints Utilizados
 
-### `npm run build` fails to minify
+#### 1. Berries
+- `/berry/` → Retorna a lista de todas as berries.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### 2. Habitats
+- `/pokemon-habitat/` → Retorna a lista de todos os habitats de Pokémon.
+- `/pokemon-habitat/{nome}/` → Retorna todos os Pokémons de um habitat específico.
