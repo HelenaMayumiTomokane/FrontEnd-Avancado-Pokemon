@@ -38,7 +38,7 @@ A interface é responsiva, intuitiva e focada na experiência do usuário, exibi
 
 ## 📁 Estrutura do Projeto
 
-```plaintext
+```
 FrontEnd-Avancado-Pokemon/
 │
 ├── pokemon/                        # Módulo Pokémon
@@ -67,6 +67,7 @@ FrontEnd-Avancado-Pokemon/
 ├── package.json                    # Dependências e scripts do projeto
 ├── package-lock.json               # Bloqueio de versões das dependências
 └── README.md                       # Este arquivo
+```
 
 ---
 
