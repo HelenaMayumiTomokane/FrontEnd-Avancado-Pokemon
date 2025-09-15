@@ -5,21 +5,24 @@
   justify-content: center;
   min-height: 80vh;
   background-color: var(--color-page-background);
-  padding: 20px;
+  padding: 24px;
   font-family: var(--font-family);
   text-align: center;
+  color: var(--colour-page-text-primary);
 }
 
 #minigame-title {
   color: var(--color-header-backgroud);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
 /* Contador */
 #counter-display {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   color: var(--colour-page-text-third);
 }
 
@@ -28,7 +31,7 @@
   background-color: var(--color-botton-primary);
   color: var(--color-botton-text-primary);
   border: none;
-  padding: 20px 30px;
+  padding: 18px 28px;
   border-radius: 50%;
   font-size: 1.2rem;
   font-weight: bold;
@@ -43,13 +46,13 @@
 
 /* Seção de finalizar */
 #finish-section {
-  margin-top: 30px;
+  margin-top: 24px;
 }
 
 #finish-button {
   background-color: var(--color-header-backgroud);
   color: var(--color-header-text-primary);
-  padding: 12px 25px;
+  padding: 12px 24px;
   border: none;
   border-radius: 12px;
   font-size: 1rem;
@@ -65,7 +68,7 @@
 
 /* Mensagem */
 #minigame-message {
-  margin-top: 20px;
+  margin-top: 16px;
   font-size: 1.1rem;
   font-weight: bold;
   color: var(--colour-page-text-secondary);

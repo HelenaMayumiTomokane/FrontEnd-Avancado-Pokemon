@@ -2,9 +2,10 @@
   background-color: var(--color-footer-backgroud);
   color: var(--color-footer-text-primary);
   text-align: center;
-  padding: var(--space-4);
+  padding: 16px; /* substituindo --space-4 */
   font-size: 0.9rem;
   box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-family);
 }
 
 .footer a {

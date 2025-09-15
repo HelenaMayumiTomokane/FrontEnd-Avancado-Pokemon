@@ -4,14 +4,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--space-4) var(--space-6);
+  padding: 16px 24px; /* substituindo --space-4 e --space-6 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-family);
 }
 
 .header-logo {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: 12px; /* substituindo --space-3 */
 }
 
 .header-logo .logo {
@@ -21,7 +22,7 @@
 
 .header-nav {
   display: flex;
-  gap: var(--space-4);
+  gap: 16px; /* substituindo --space-4 */
 }
 
 .header-nav a {

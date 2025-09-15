@@ -1,8 +1,10 @@
 #shop-page {
-  padding: 20px;
+  padding: 16px; /* valor padronizado */
   background-color: var(--color-page-background);
   min-height: 100vh;
   box-sizing: border-box;
+  font-family: var(--font-family);
+  color: var(--colour-page-text-primary);
 }
 
 /* ---------- Header ---------- */
@@ -10,12 +12,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
   background: var(--color-header-backgroud);
   color: var(--color-header-text-primary);
-  padding: 15px 20px;
+  padding: 12px 16px;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow-default);
 }
 
 #balance-box p {
@@ -27,26 +29,26 @@
 #shop-message {
   background: var(--colour-page-text-secondary);
   color: var(--color-header-text-primary);
-  padding: 10px;
+  padding: 8px 12px;
   border-radius: 8px;
   text-align: center;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 /* ---------- Grid de Itens ---------- */
 #shop-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
+  gap: 12px;
 }
 
 /* Cada card de item */
 #shop-card {
-  background: white;
-  padding: 15px;
+  background: var(--color-card-background);
+  padding: 12px;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow-default);
   text-align: center;
   transition: transform 0.2s ease;
   display: flex;
@@ -61,7 +63,7 @@
 #shop-item-image {
   width: 64px;
   height: 64px;
-  margin: 0 auto 10px;
+  margin: 0 auto 8px;
 }
 
 #shop-card h4 {
@@ -81,7 +83,7 @@
 #add-to-cart-btn {
   background: var(--color-botton-primary);
   color: var(--color-botton-text-primary);
-  padding: 8px 12px;
+  padding: 6px 12px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -96,18 +98,18 @@
 /* ---------- Carrinho ---------- */
 #cart-section {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
-  width: 300px;
-  background: white;
-  padding: 15px;
+  right: 16px;
+  bottom: 16px;
+  width: 280px;
+  background: var(--color-card-background);
+  padding: 12px;
   border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--box-shadow-default);
   z-index: 100;
 }
 
 #cart-section h2 {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   font-size: 1.2rem;
   text-align: center;
   color: var(--color-header-backgroud);
@@ -145,8 +147,8 @@
 
 #checkout-btn {
   background: var(--color-header-backgroud);
-  color: white;
-  padding: 10px 15px;
+  color: var(--color-header-text-primary);
+  padding: 10px 12px;
   border: none;
   border-radius: 8px;
   font-size: 1rem;

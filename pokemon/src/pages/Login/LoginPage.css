@@ -1,32 +1,40 @@
 .login-container {
   max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
+  margin: 40px auto;
+  padding: 16px;
   border: 1px solid #ddd;
-  border-radius: 10px;
+  border-radius: 12px;
+  background-color: var(--color-card-background);
+  box-shadow: var(--box-shadow-default);
   text-align: center;
+  font-family: var(--font-family);
+  color: var(--colour-page-text-primary);
 }
 
 .login-container h2 {
   color: var(--color-page-h2-primary);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  font-weight: bold;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .login-form label {
   font-weight: bold;
   text-align: left;
+  color: var(--colour-page-text-third);
 }
 
 .login-form input {
   padding: 8px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-family: var(--font-family);
+  font-size: 14px;
 }
 
 .login-form button {
@@ -34,7 +42,10 @@
   color: var(--color-botton-text-primary);
   padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .login-form button:hover {
@@ -42,7 +53,7 @@
 }
 
 .login-message {
-  margin-top: 15px;
+  margin-top: 16px;
   font-weight: bold;
-  color: #333;
+  color: var(--colour-page-text-third);
 }

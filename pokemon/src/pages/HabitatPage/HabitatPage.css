@@ -1,54 +1,57 @@
 /* Container principal */
 #habitat-page-container {
-  padding: 20px;
+  padding: 24px;
   max-width: 1400px;
   margin: 0 auto;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--font-family);
   text-align: center;
-  background: #f0f4f8;
+  background: var(--color-page-background);
   min-height: 100vh;
+  color: var(--colour-page-text-primary);
 }
 
 /* Banner do Habitat */
 #habitat-banner {
   background: linear-gradient(135deg, #6dd5ed, #2193b0);
   color: white;
-  padding: 30px 20px;
+  padding: 28px 24px;
   border-radius: 12px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  margin-bottom: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 #habitat-banner h1 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   text-transform: capitalize;
   margin: 0;
   letter-spacing: 1px;
+  font-weight: bold;
 }
 
 /* Grid de Pokémon */
 #pokemon-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 25px;
+  gap: 20px;
   justify-items: center;
-  margin-top: 10px;
+  margin-top: 16px;
 }
 
 /* Cartão de Pokémon */
 .pokemon-card {
-  background-color: white;
-  border-radius: 15px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  padding: 15px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  background-color: var(--color-card-background);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 140px;
   cursor: pointer;
   text-align: center;
+  color: var(--colour-page-text-primary);
 }
 
 .pokemon-card:hover {
-  transform: translateY(-8px) scale(1.05);
+  transform: translateY(-6px) scale(1.05);
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
@@ -61,23 +64,25 @@
 
 .pokemon-card h3 {
   font-size: 1rem;
-  color: #333;
+  color: var(--colour-page-text-primary);
   text-transform: capitalize;
   margin: 0;
+  font-weight: bold;
 }
 
 /* Loading */
 #loading-text {
   font-size: 1.3rem;
-  color: #555;
-  margin-top: 40px;
+  color: var(--colour-page-text-third);
+  margin-top: 24px;
+  font-weight: bold;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
   .pokemon-card {
     width: 120px;
-    padding: 10px;
+    padding: 12px;
   }
 
   .pokemon-card img {

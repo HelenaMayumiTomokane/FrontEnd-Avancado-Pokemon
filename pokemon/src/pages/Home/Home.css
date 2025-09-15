@@ -5,7 +5,7 @@
   align-items: center;
   background: var(--color-page-background);
   min-height: 100vh;
-  padding-bottom: 40px;
+  padding-bottom: 40px; /* valor fixo pode ser ajustado se quiser padronizar */
 }
 
 /* ------------------ CARROSSEL ------------------ */
@@ -15,7 +15,7 @@
   max-width: 1000px;
   overflow: hidden;
   border-radius: 12px;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
 #carousel-inner {
@@ -37,9 +37,9 @@
 
 #carousel-caption {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  color: #fff;
+  bottom: 16px;
+  left: 16px;
+  color: var(--color-header-text-primary);
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
 }
 
@@ -48,7 +48,7 @@
   top: 50%;
   transform: translateY(-50%);
   background: rgba(0, 0, 0, 0.5);
-  color: white;
+  color: var(--color-header-text-primary);
   border: none;
   font-size: 2rem;
   padding: 5px 12px;
@@ -83,15 +83,15 @@
 }
 
 #dot.active {
-  background: white;
+  background: var(--color-header-text-primary);
 }
 
 /* ------------------ CARD CENTRAL ------------------ */
 #home-card {
-  background: white;
-  padding: 30px 40px;
+  background: var(--color-card-background);
+  padding: 24px; /* valores padronizados */
   border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow-default);
   text-align: center;
   max-width: 700px;
   width: 100%;
@@ -100,21 +100,21 @@
 #home-title {
   font-size: 2rem;
   color: var(--color-page-h1-primary);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 #home-subtitle {
   font-size: 1.2rem;
   color: var(--colour-page-text-third);
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 /* ------------------ BOTÕES DE HABITATS ------------------ */
 #habitat-buttons {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 15px;
-  margin-top: 20px;
+  gap: 12px;
+  margin-top: 16px;
 }
 
 #habitat-btn {
@@ -124,12 +124,13 @@
   background: var(--color-page-background);
   border: 2px solid var(--color-botton-primary);
   border-radius: 12px;
-  padding: 15px;
+  padding: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1rem;
   text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow-default);
+  color: var(--colour-page-text-primary);
 }
 
 #habitat-btn:hover {
@@ -157,26 +158,27 @@
 
 /* ------------------ LINKS RÁPIDOS ------------------ */
 #quick-links {
-  margin-top: 40px;
+  margin-top: 32px;
   text-align: center;
 }
 
 #links-grid {
   display: flex;
-  gap: 15px;
+  gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 15px;
+  margin-top: 12px;
 }
 
 #link-card {
-  background: white;
-  padding: 15px 25px;
+  background: var(--color-card-background);
+  padding: 12px 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow-default);
   cursor: pointer;
   transition: transform 0.3s ease, background 0.3s ease;
   font-size: 1rem;
+  color: var(--colour-page-text-primary);
 }
 
 #link-card:hover {
@@ -187,7 +189,7 @@
 
 /* ------------------ FOOTER ------------------ */
 #home-footer {
-  margin-top: 40px;
+  margin-top: 32px;
   text-align: center;
   font-size: 0.9rem;
   color: var(--colour-page-text-third);
@@ -198,5 +200,5 @@
   text-align: center;
   font-size: 1.2rem;
   color: var(--colour-page-text-primary);
-  margin-top: 40px;
+  margin-top: 32px;
 }

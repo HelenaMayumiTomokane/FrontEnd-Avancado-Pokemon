@@ -1,23 +1,19 @@
 :root {
   /* 🎨 Paleta de cores do cabeçalho */
   --color-header-backgroud: #1D3557;
-
   --color-header-text-primary: white;
   --color-header-text-secondary: #FFCC00;
 
   /* 🎨 Paleta de cores do rodapé */
   --color-footer-backgroud: #1D3557;
-
   --color-footer-text-primary: white;
   --color-footer-text-secondary: #FFCC00;
 
   /* 🎨 Paleta de cores da página */
   --color-page-background: #F8FAFC;
-
   --colour-page-text-primary: #333333;
   --colour-page-text-secondary: #FFCC00;
   --colour-page-text-third: #555;
-
   --color-page-h1-primary: #FFCC00;
   --color-page-h2-primary: #333;
 
@@ -37,16 +33,8 @@
   /* 🧾 Tipografia */
   --font-family: 'Roboto', sans-serif;
 
-  /* 📏 Espaçamentos (escala 4px) */
-  --space-0: 0;        /* 0px */
-  --space-1: 4px;       /* muito pequeno */
-  --space-2: 8px;       /* pequeno */
-  --space-3: 12px;      /* médio-pequeno */
-  --space-4: 16px;      /* médio */
-  --space-5: 20px;      /* médio-grande */
-  --space-6: 24px;      /* grande */
-  --space-8: 32px;      /* extra grande */
-  --space-10: 40px;     /* muito grande */
+  /* 🌑 Sombras */
+  --box-shadow-default: 0px 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 body {
