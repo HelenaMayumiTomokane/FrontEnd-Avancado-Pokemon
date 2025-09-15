@@ -56,7 +56,7 @@ function UserPage() {
 
   const handleUpdatePokemonName = async (pokemon_id, newName) => {
     try {
-      const pokemon = pokemons.find(p => p.pokemon_id === pokemon_id);
+      const pokemon = pokemons.find((p) => p.pokemon_id === pokemon_id);
       const data = await api_owner_pokemon.APIPut_OwnerPokemon(
         pokemon_id,
         user_id,
@@ -66,8 +66,10 @@ function UserPage() {
       );
 
       if (data && data.pokemon_id) {
-        setPokemons(prev =>
-          prev.map(p => p.pokemon_id === pokemon_id ? { ...p, pokemon_name: newName } : p)
+        setPokemons((prev) =>
+          prev.map((p) =>
+            p.pokemon_id === pokemon_id ? { ...p, pokemon_name: newName } : p
+          )
         );
         setMessage(`Apelido do Pokémon atualizado!`);
       }
@@ -83,7 +85,7 @@ function UserPage() {
     try {
       const data = await api_owner_pokemon.APIDelete_OwnerPokemon(pokemon_id);
       if (data && data.pokemon_id) {
-        setPokemons(prev => prev.filter(p => p.pokemon_id !== pokemon_id));
+        setPokemons((prev) => prev.filter((p) => p.pokemon_id !== pokemon_id));
         setMessage("Pokémon removido!");
       }
     } catch (error) {
@@ -100,45 +102,48 @@ function UserPage() {
 
   return (
     <div id="user-page">
+      <header className="user-header">
+        <h1>Perfil do Treinador</h1>
+        <Cash_Balance user_id={user_id} trigger={balanceTrigger} />
+      </header>
+
       <main id="main-user">
-        
         {/* Coluna esquerda */}
         <div id="left-section">
           {/* Pokémon Capturados */}
-          <section id="pokemon-card" className="card">
+          <section className="card">
             <h2>Pokémons Capturados</h2>
-              {pokemons.length > 0 ? (
-                <PokemonList
-                  pokemons={pokemons}
-                  setPokemons={setPokemons}
-                  onUpdatePokemonName={handleUpdatePokemonName}
-                  onDeletePokemon={handleDeletePokemon}
-                />
-              ) : (
-                <p className="message">Você ainda não capturou nenhum Pokémon!</p>
-              )}
-
+            {pokemons.length > 0 ? (
+              <PokemonList
+                pokemons={pokemons}
+                setPokemons={setPokemons}
+                onUpdatePokemonName={handleUpdatePokemonName}
+                onDeletePokemon={handleDeletePokemon}
+              />
+            ) : (
+              <p className="message">Você ainda não capturou nenhum Pokémon!</p>
+            )}
           </section>
-
+          <br></br>
           {/* Itens da Bag */}
           <section className="card">
             <h2>Itens Comprados</h2>
-              {userBag.length > 0 ? (
-                <BagList userBag={userBag} setUserBag={setUserBag} pokemons={pokemons} />
-              ) : (
-                <p className="message">Sua bag está vazia!</p>
-              )}
+            {userBag.length > 0 ? (
+              <BagList
+                userBag={userBag}
+                setUserBag={setUserBag}
+                pokemons={pokemons}
+              />
+            ) : (
+              <p className="message">Sua bag está vazia!</p>
+            )}
           </section>
         </div>
 
         {/* Coluna direita */}
         <div id="right-section">
-          {/* Dados do Usuário */}
           <section id="user-card" className="card">
             <h2>Dados do Usuário</h2>
-            <Cash_Balance user_id={user_id} trigger={balanceTrigger} />
-
-
             <UserDataCard
               login={login}
               setLogin={setLogin}

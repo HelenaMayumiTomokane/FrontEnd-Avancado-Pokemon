@@ -12,7 +12,6 @@ function PokemonList({ pokemons, setPokemons, onUpdatePokemonName, onDeletePokem
           />
           <div>
             <label>ID Interno:</label> {pokemon.pokemon_id}<br />
-            <label>ID API:</label> {pokemon.pokemon_id_external_api}<br />
             <label>Espécie:</label> {pokemon.pokemon_species}<br />
             <label>Apelido:</label>
             <input
