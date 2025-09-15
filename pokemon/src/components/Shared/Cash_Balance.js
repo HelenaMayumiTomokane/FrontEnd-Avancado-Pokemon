@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as api_cash_audit from "../Internal_API/Cash_Audit";
 
-function Cash_Balance({ user_id }) {
+function Cash_Balance({ user_id, trigger }) {
   const [balance, setBalance] = useState(0);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function Cash_Balance({ user_id }) {
     };
 
     fetchBalance();
-  }, [user_id]);
+  }, [user_id, trigger]); // <- adicionamos trigger aqui
 
   return (
     <div id="balance-box">

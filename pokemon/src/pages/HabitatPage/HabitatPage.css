@@ -1,50 +1,98 @@
-.habitat-page-container {
+/* Container principal */
+#habitat-page-container {
   padding: 20px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
+  background: #f0f4f8;
+  min-height: 100vh;
 }
 
-.habitat-page-container h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.pokemon-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 20px;
-  justify-items: center;
-  margin-top: 20px;
-}
-
-.pokemon-card {
-  background-color: #f7f7f7;
+/* Banner do Habitat */
+#habitat-banner {
+  background: linear-gradient(135deg, #6dd5ed, #2193b0);
+  color: white;
+  padding: 30px 20px;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  padding: 10px;
-  transition: transform 0.2s, box-shadow 0.2s;
-  width: 120px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+#habitat-banner h1 {
+  font-size: 2.2rem;
+  text-transform: capitalize;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* Grid de Pokémon */
+#pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  margin-top: 10px;
+}
+
+/* Cartão de Pokémon */
+.pokemon-card {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  padding: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 140px;
   cursor: pointer;
+  text-align: center;
 }
 
 .pokemon-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 .pokemon-card img {
-  width: 96px;
-  height: 96px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .pokemon-card h3 {
-  font-size: 0.9rem;
-  color: #555;
+  font-size: 1rem;
+  color: #333;
   text-transform: capitalize;
   margin: 0;
+}
+
+/* Loading */
+#loading-text {
+  font-size: 1.3rem;
+  color: #555;
+  margin-top: 40px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .pokemon-card {
+    width: 120px;
+    padding: 10px;
+  }
+
+  .pokemon-card img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  #pokemon-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 15px;
+  }
+
+  #habitat-banner h1 {
+    font-size: 1.5rem;
+  }
 }

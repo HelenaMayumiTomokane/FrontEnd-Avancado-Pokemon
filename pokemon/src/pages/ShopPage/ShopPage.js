@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./ShopPage.css";
 import * as api_user_bag from "../../components/Internal_API/User_Bag";
 import * as api_external_berry from "../../components/External_API/Berry_PokeAPI";
+import * as api_cash_audit from "../../components/Internal_API/Cash_Audit";
 
-// Componente reutilizável
 import Cash_Balance from "../../components/Shared/Cash_Balance";
 
 function ShopPage() {
@@ -11,12 +11,11 @@ function ShopPage() {
   const [items, setItems] = useState([]);
   const [cart, setCart] = useState([]);
   const [message, setMessage] = useState("");
+  const [balanceTrigger, setBalanceTrigger] = useState(0);
 
-  /* ------------------- USEEFFECT ------------------- */
   useEffect(() => {
     if (!user_id) return;
 
-    // Pega as berries
     const fetchItems = async () => {
       try {
         const results = await api_external_berry.APIGetBerry();
@@ -30,10 +29,10 @@ function ShopPage() {
         console.error(err);
       }
     };
+
     fetchItems();
   }, [user_id]);
 
-  /* ------------------- FUNÇÕES ------------------- */
   const handleAddToCart = (item) => {
     setCart((prev) => [...prev, item]);
     setMessage(`${item.name} adicionado ao carrinho!`);
@@ -48,11 +47,16 @@ function ShopPage() {
     if (total > 0) {
       try {
         for (let item of cart) {
+          // Adiciona item na bag do usuário
           await api_user_bag.APIPost_UserBag(user_id, "input", item.name, null);
+
+          // Desconta o valor do item do saldo do usuário
+          await api_cash_audit.APIPost_CashAudit(user_id, "output", item.price);
         }
 
         setCart([]);
         setMessage(`Compra realizada! Você gastou ${total} cash.`);
+        setBalanceTrigger(prev => prev + 1); // Atualiza saldo
       } catch (err) {
         console.error(err);
         setMessage("Erro ao finalizar a compra.");
@@ -60,12 +64,11 @@ function ShopPage() {
     }
   };
 
-  /* ------------------- RENDER ------------------- */
   return (
     <div id="shop-page">
       <header id="shop-header">
         <h1>Loja de Berries</h1>
-        <Cash_Balance user_id={user_id} />
+        <Cash_Balance user_id={user_id} trigger={balanceTrigger} />
       </header>
 
       {message && <div id="shop-message">{message}</div>}

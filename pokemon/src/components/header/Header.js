@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import logo from "../../images/logo.png";
+import logo from "../../Image/logo.png";
 
 function Header() {
   const userId = localStorage.getItem("user_id"); // verifica se o usuário está logado

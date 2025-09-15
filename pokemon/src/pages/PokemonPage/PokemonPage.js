@@ -8,7 +8,7 @@ function PokemonPage() {
   const [pokemonData, setPokemonData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const user_id = localStorage.getItem("user_id"); // ID do usuário logado
+  const user_id = localStorage.getItem("user_id");
 
   useEffect(() => {
     const fetchPokemon = async () => {
@@ -32,13 +32,8 @@ function PokemonPage() {
       alert("⚠ Você precisa estar logado para capturar Pokémon!");
       return;
     }
-
     try {
-      const response = await APIPost_OwnerPokemon(
-        user_id,
-        pokemonData.id,
-        pokemonData.name
-      );
+      await APIPost_OwnerPokemon(user_id, pokemonData.id, pokemonData.name);
       alert(`🎉 ${pokemonData.name.toUpperCase()} capturado com sucesso!`);
     } catch (error) {
       console.error("Erro ao capturar Pokémon:", error);
@@ -51,6 +46,28 @@ function PokemonPage() {
 
   if (!pokemonData) return <p id="error">Pokémon não encontrado!</p>;
 
+  // Função para cores por tipo
+  const typeColors = {
+    normal: "#A8A77A",
+    fire: "#EE8130",
+    water: "#6390F0",
+    electric: "#F7D02C",
+    grass: "#7AC74C",
+    ice: "#96D9D6",
+    fighting: "#C22E28",
+    poison: "#A33EA1",
+    ground: "#E2BF65",
+    flying: "#A98FF3",
+    psychic: "#F95587",
+    bug: "#A6B91A",
+    rock: "#B6A136",
+    ghost: "#735797",
+    dragon: "#6F35FC",
+    dark: "#705746",
+    steel: "#B7B7CE",
+    fairy: "#D685AD",
+  };
+
   return (
     <div id="pokemon-page-container">
       <div id="pokemon-card">
@@ -60,7 +77,7 @@ function PokemonPage() {
 
         <div id="pokemon-info">
           <img
-            src={pokemonData.sprites.front_default}
+            src={pokemonData.sprites.other["official-artwork"].front_default}
             alt={pokemonData.name}
             id="pokemon-image"
           />
@@ -68,7 +85,15 @@ function PokemonPage() {
           <div id="pokemon-details">
             <p>
               <strong>Tipo:</strong>{" "}
-              {pokemonData.types.map((t) => t.type.name).join(", ")}
+              {pokemonData.types.map((t) => (
+                <span
+                  key={t.type.name}
+                  id="type-badge"
+                  style={{ backgroundColor: typeColors[t.type.name] || "#777" }}
+                >
+                  {t.type.name}
+                </span>
+              ))}
             </p>
             <p>
               <strong>Altura:</strong> {pokemonData.height / 10} m

@@ -25,17 +25,21 @@ function HabitatPage() {
   }, [habitatName]);
 
   // Função auxiliar para pegar o ID do Pokémon a partir da URL
-  function getPokemonId(url) {
+  const getPokemonId = (url) => {
     const parts = url.split("/").filter(Boolean); // remove strings vazias
     return parts[parts.length - 1]; // retorna o último número da URL
-  }
+  };
 
-  if (loading) return <p>Carregando Pokémon do habitat {habitatName}...</p>;
+  if (loading)
+    return <p id="loading-text">Carregando Pokémon do habitat {habitatName}...</p>;
 
   return (
-    <div className="habitat-page-container">
-      <h1>Pokémon do habitat: {habitatName}</h1>
-      <div className="pokemon-grid">
+    <div id="habitat-page-container">
+      <div id="habitat-banner">
+        <h1>{habitatName.replace("-", " ").toUpperCase()}</h1>
+      </div>
+
+      <div id="pokemon-grid">
         {pokemonList.map((pokemon) => (
           <div
             key={pokemon.name}
@@ -43,7 +47,7 @@ function HabitatPage() {
             onClick={() => navigate(`/pokemon/${pokemon.name}`)}
           >
             <img
-              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${getPokemonId(
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${getPokemonId(
                 pokemon.url
               )}.png`}
               alt={pokemon.name}

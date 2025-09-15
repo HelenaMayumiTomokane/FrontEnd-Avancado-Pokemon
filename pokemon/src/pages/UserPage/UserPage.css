@@ -1,62 +1,215 @@
-/* Container principal da página do usuário */
+:root {
+  --color-page-background: #f0f4f8;
+  --color-card-background: #ffffff;
+  --color-primary: #ffcb05; /* Amarelo Pokémon */
+  --color-secondary: #2a75bb; /* Azul Pokémon */
+  --color-bag: #ff6f61; /* Laranja/vermelho */
+  --color-text-primary: #333;
+  --shadow-card: 0 8px 20px rgba(0, 0, 0, 0.15);
+  --border-radius: 14px;
+}
+
+/* ===== CONTAINER PRINCIPAL ===== */
 #user-page {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 25px;
   background: var(--color-page-background);
-  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   box-sizing: border-box;
-}
-
-/* Área principal */
-#main-user {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 30px; /* Espaço entre os cards */
-  max-width: 1200px;
   width: 100%;
+  height: 100%;
+}
+
+/* ===== GRID GERAL ===== */
+#main-user {
+  display: flex;
+  gap: 25px;
+  width: 100%;
+  height: 100%;
   box-sizing: border-box;
 }
 
-/* Ajusta os cards individuais */
-#user-card,
-#pokemon-card,
-#bag-card {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
+/* ===== COLUNA DA ESQUERDA ===== */
+#left-section {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 70%; 
+  box-sizing: border-box;
+  
 }
 
-#user-card:hover,
-#pokemon-card:hover,
-#bag-card:hover {
+/* ===== COLUNA DA DIREITA ===== */
+#right-section {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 25%; 
+  box-sizing: border-box;
+}
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--color-card-background);
+  border-radius: var(--border-radius);
+  padding: 25px;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: 2px solid #eee;
+  width: 100%;
+}
+
+.card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
 }
 
-/* Lista de pokémons e itens */
-#pokemon-card .pokemon-list,
-#bag-card .bag-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-/* Títulos internos dos cards */
-#user-card h3,
-#pokemon-card h3,
-#bag-card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 10px;
+/* ===== TÍTULOS ===== */
+.card h2 {
+  font-size: 1.7rem;
+  margin-bottom: 18px;
   text-align: center;
-  color: var(--colour-page-text-primary);
+  color: var(--color-secondary);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  position: relative;
 }
 
-/* Responsivo */
+.card h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: var(--color-primary);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* ===== LISTA DE POKÉMON ===== */
+.pokemon-grid{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.pokemon-grid input{
+  width: 100%;
+}
+
+.pokemon-card-item {
+  display: flex;
+  width: 150px;
+  background: linear-gradient(135deg, #ffcb05 0%, #ffdd55 100%);
+  border-radius: var(--border-radius);
+  padding: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 2px solid var(--color-secondary);
+  width: 100%;
+}
+
+.pokemon-card-item:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(42,117,187,0.4);
+}
+
+.pokemon-card-item img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.pokemon-card-item h3 {
+  font-size: 1rem;
+  margin: 0;
+  text-transform: capitalize;
+  color: var(--color-secondary);
+  font-weight: bold;
+}
+
+/* ===== LISTA DE ITENS DA BAG ===== */
+#user-bag {
+  padding: 20px;
+}
+
+.empty-bag {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Grid para exibir os cards */
+.bag-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+/* Estilização dos cards */
+.bag-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.bag-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.bag-card-title {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.bag-card-pokemon {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.bag-card-quantity {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #2b7a0b;
+  margin-top: 8px;
+}
+
+
+
+/* ===== MENSAGENS ===== */
+.message {
+  font-size: 1rem;
+  text-align: center;
+  color: #555;
+  padding: 15px 0;
+  font-weight: bold;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 1024px) {
+  #main-user {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   #main-user {
     grid-template-columns: 1fr;
-    padding: 10px;
+  }
+
+  .left-section, 
+  .right-section {
+    width: 100%;
   }
 }

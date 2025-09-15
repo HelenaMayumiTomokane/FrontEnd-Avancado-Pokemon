@@ -5,7 +5,6 @@ function UserDataCard({
   password, setPassword,
   name, setName,
   role, setRole,
-  balance,
   message,
   handleUpdate,
   handleDelete,
@@ -20,25 +19,24 @@ function UserDataCard({
       </div>
       <br />
 
-      <label>Login:</label>
+      <label>Login: </label>
       <input type="text" value={login} onChange={e => setLogin(e.target.value)} />
+      <br></br>
 
-      <label>Nome:</label>
+      <label>Nome: </label>
       <input type="text" value={name} onChange={e => setName(e.target.value)} />
+      <br></br>
 
-      <label>Senha:</label>
+      <label>Senha: </label>
       <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
+      <br></br>
 
-      <label>Tipo de Usuário:</label>
+      <label>Tipo de Usuário: </label>
       <select value={role} onChange={e => setRole(e.target.value)}>
         <option value="user">Usuário</option>
         <option value="admin">Administrador</option>
       </select>
-
-      {/* Saldo de cash */}
-      <div id="cash-balance">
-        <h3>Saldo de Cash: {balance}</h3>
-      </div>
+      <br></br>
 
       {message && <p id="pokemon-message">{message}</p>}
     </div>

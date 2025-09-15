@@ -2,8 +2,8 @@
 
 ## 🎮 Descrição
 
-Este projeto é uma aplicação web desenvolvida com **Angular**, permitindo aos usuários buscar e visualizar informações detalhadas sobre Pokémons usando a [PokéAPI](https://pokeapi.co/).  
-A interface é responsiva, intuitiva e focada na experiência do usuário, exibindo dados como nome, tipo, habilidades e estatísticas dos Pokémons.
+Este projeto é uma aplicação web que permite aos usuários buscar e visualizar informações detalhadas sobre Pokémons usando a [PokéAPI](https://pokeapi.co/).  
+A interface é responsiva, intuitiva e focada na experiência do usuário, exibindo dados como nome e tipo.
 
 ---
 
@@ -23,53 +23,108 @@ A interface é responsiva, intuitiva e focada na experiência do usuário, exibi
 - Serviços organizados para facilitar manutenção e escalabilidade
 
 ### 4. Testes
-- Testes unitários dos principais componentes usando Angular/Karma
+- Testes unitários dos principais componentes da interface
 
 ---
 
-## 🧪 Tecnologias Utilizadas
-
-- **Frontend:** Angular  
-- **Estilização:** CSS  
-- **Gerenciamento de pacotes:** npm  
-- **API Externa:** [PokéAPI](https://pokeapi.co/)  
+## 🛠️ Tecnologias Utilizadas
+- ⚛️ React (JavaScript) para a interface e consumo da API.
+- 🖼️ HTML/CSS para layout e estilo.
+- 📦 Node.js / npm para gerenciamento de pacotes do frontend.
+- 🧪 API Externa: [PokéAPI](https://pokeapi.co/)  
 
 ---
 
 ## 📁 Estrutura do Projeto
 
-```
+```plaintext
 FrontEnd-Avancado-Pokemon/
 │
-├── pokemon/                        # Módulo Pokémon
-│   ├── components/                 # Componentes reutilizáveis
-│   │   ├── pokemon-card/           # Exibe informações de um Pokémon
-│   │   └── search-bar/             # Barra de pesquisa de Pokémons
-│   │
-│   ├── services/                   # Serviços para comunicação com a API
-│   │   └── pokemon.service.ts
-│   │
-│   ├── pokemon.module.ts           # Módulo principal do Pokémon
-│   └── pokemon-routing.module.ts   # Definições de rotas do módulo
+├── Dockerfile                   # Configuração do container Docker para frontend
+├── README.md                    # Documentação do projeto
+├── requirements.txt             # Dependências do projeto
 │
-├── src/
-│   ├── app/
-│   │   ├── app.component.ts        # Componente raiz da aplicação
-│   │   └── app.module.ts           # Módulo principal da aplicação
+├── pokemon/                     # Pasta principal do módulo Pokémon
 │   │
-│   ├── assets/                     # Imagens e recursos estáticos
-│   │   └── logo.png
+│   ├── public/                  # Arquivos públicos estáticos
+│   │   └── index.html           # HTML principal
 │   │
-│   └── environments/               # Configurações de ambiente
-│       ├── environment.ts          # Ambiente de desenvolvimento
-│       └── environment.prod.ts     # Ambiente de produção
+│   └── src/                     # Código fonte do frontend
+│       ├── App.js               # Componente raiz da aplicação
+│       ├── index.js             # Ponto de entrada do React
+│       ├── index.css            # Estilos globais
+│       ├── reportWebVitals.js   # Métricas de performance
+│       └── setupTests.js        # Configuração de testes
 │
-├── package.json                    # Dependências e scripts do projeto
-├── package-lock.json               # Bloqueio de versões das dependências
-└── README.md                       # Este arquivo
-```
+│       ├── Image/               # Recursos de imagens
+│       │   └── logo.png         # Logo do projeto
+│       │
+│       ├── components/          # Componentes reutilizáveis
+│       │   ├── External_API/    # Componentes que consomem API externa (PokéAPI)
+│       │   │   ├── Berry_PokeAPI.js
+│       │   │   └── Habitat_PokeAPI.js
+│       │   │
+│       │   ├── Footer/          # Rodapé da aplicação
+│       │   │   ├── Footer.js
+│       │   │   └── Footer.css
+│       │   │
+│       │   ├── Header/          # Cabeçalho da aplicação
+│       │   │   ├── Header.js
+│       │   │   └── Header.css
+│       │   │
+│       │   ├── Internal_API/    # Componentes que consomem APIs internas
+│       │   │   ├── Account_User.js
+│       │   │   ├── Cash_Audit.js
+│       │   │   ├── Owner_Pokemon.js
+│       │   │   └── User_Bag.js
+│       │   │
+│       │   └── Shared/          # Componentes compartilhados
+│       │       └── Cash_Balance.js
+│       │
+│       ├── services/            # Serviços para comunicação com APIs
+│       │   └── pokemonService.js
+│       │
+│       └── pages/               # Páginas da aplicação
+│           ├── HabitatPage/
+│           │   ├── HabitatPage.js
+│           │   └── HabitatPage.css
+│           │
+│           ├── Home/
+│           │   ├── Home.js
+│           │   └── Home.css
+│           │
+│           ├── Login/
+│           │   ├── LoginPage.js
+│           │   └── LoginPage.css
+│           │
+│           ├── MiniGamesPage/
+│           │   ├── MiniGamesPage.js
+│           │   └── MiniGamesPage.css
+│           │
+│           ├── NotFound/
+│           │   ├── NotFound.js
+│           │   └── NotFound.css
+│           │
+│           ├── PokemonPage/
+│           │   ├── PokemonPage.js
+│           │   └── PokemonPage.css
+│           │
+│           ├── RegisterUser/
+│           │   ├── RegisterUser.js
+│           │   └── RegisterUser.css
+│           │
+│           ├── ShopPage/
+│           │   ├── ShopPage.js
+│           │   └── ShopPage.css
+│           │
+│           └── UserPage/
+│               ├── UserPage.js
+│               └── UserPage.css
+│
 
+```
 ---
+
 
 ## ⚙️ Instalação e Execução
 
@@ -88,11 +143,11 @@ cd FrontEnd-Avancado-Pokemon
 3. Instale as dependências:
 npm install
 
-
 4. Execute a aplicação:
 npm start
 
-A aplicação estará disponível em: http://localhost:4200
+A aplicação estará disponível em: http://localhost:3000/
+E para parar a execução pressione: Ctrl + C
 
 ## 🌐 APIs Externas
 
@@ -111,3 +166,8 @@ https://pokeapi.co/api/v2
 #### 2. Habitats
 - `/pokemon-habitat/` → Retorna a lista de todos os habitats de Pokémon.
 - `/pokemon-habitat/{nome}/` → Retorna todos os Pokémons de um habitat específico.
+
+
+
+
+💡 Caso tenha dúvidas ou encontre problemas, consulte a documentação ou abra uma issue no repositório! 🚀
