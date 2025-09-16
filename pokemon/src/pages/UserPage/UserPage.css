@@ -218,3 +218,37 @@
   color: #868e96;
   font-size: 14px;
 }
+
+.button-group button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.password-input {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.password-input input {
+  width: 100%;
+  padding-right: 35px; /* espaço para o ícone */
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  box-sizing: border-box;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #555;
+}
+
+.password-toggle:hover {
+  color: #000;
+}
