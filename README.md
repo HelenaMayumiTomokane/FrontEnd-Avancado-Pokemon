@@ -59,6 +59,7 @@ FrontEnd-Avancado-Pokemon/
 │       ├── components/          # Componentes reutilizáveis
 │       │   ├── External_API/    # Componentes que consomem API externa (PokéAPI)
 │       │   │   ├── Berry_PokeAPI.js
+│       │   │   ├── PokemonDetail.js
 │       │   │   └── Habitat_PokeAPI.js
 │       │   │
 │       │   ├── Footer/          # Rodapé da aplicação
@@ -99,6 +100,10 @@ FrontEnd-Avancado-Pokemon/
 │           ├── NotFound/
 │           │   ├── NotFound.js
 │           │   └── NotFound.css
+│           │
+│           ├── PokemonDetail/
+│           │   ├── PokemonDetail.js
+│           │   └── PokemonDetail.css
 │           │
 │           ├── PokemonPage/
 │           │   ├── PokemonPage.js
@@ -159,16 +164,13 @@ Passos
     cd FrontEnd-Avancado-Pokemon
 
 2. Certifique-se de ter Docker instalado e rodando, caso não tenha, instale o Docker.
-    ● Windows: 
-        ```bash 
+    - Windows: 
         https://docs.docker.com/desktop/install/windows-install/
 
-    ● Ubuntu: 
-        ```bash 
+    - Ubuntu: 
         https://docs.docker.com/engine/install/ubuntu/
 
-    ● Mac OS: 
-        ```bash 
+    - Mac OS: 
         https://docs.docker.com/desktop/install/mac-install/
 
 3. Na raiz do repositório, construa a imagem:
@@ -197,5 +199,8 @@ https://pokeapi.co/api/v2
 - `/berry` → Retorna a lista de todas as berries.
 
 #### 2. Habitats
-- `/pokemon-habitat/` → Retorna a lista de todos os habitats de Pokémon.
-- `/pokemon-habitat/{nome}/` → Retorna todos os Pokémons de um habitat específico.
+- `/pokemon-habitat` → Retorna a lista de todos os habitats de Pokémon.
+- `/pokemon-habitat/{nome}` → Retorna todos os Pokémons de um habitat específico.
+
+#### 3. Pokemon
+- `/pokemon` → Retorna as informações sobre os pokemons.
