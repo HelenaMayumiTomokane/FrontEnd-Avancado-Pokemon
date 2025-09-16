@@ -29,56 +29,64 @@ function PokemonDetail() {
   if (loading) return <p>Carregando dados do Pokémon...</p>;
   if (!pokemon) return <p>Não foi possível carregar os dados do Pokémon.</p>;
 
-  /* ==================== FILTRAR MOVIMENTOS ==================== */
+  // ======== FILTRAR MOVIMENTOS ========
   const filteredMoves = pokemon.moves.filter((moveObj) =>
     moveObj.move.name.toLowerCase().includes(searchMove.toLowerCase())
   );
 
-  /* ==================== AGRUPAR MOVIMENTOS ==================== */
+  // ======== AGRUPAR MOVIMENTOS ========
   const groupedMoves = filteredMoves.reduce((levelGroups, moveObj) => {
     const details = moveObj.version_group_details?.[0] || {};
     const level = details.level_learned_at ?? 0;
     const method = details.move_learn_method?.name || "unknown";
 
-    if (!levelGroups[level]) {
-      levelGroups[level] = {};
-    }
-
-    if (!levelGroups[level][method]) {
-      levelGroups[level][method] = [];
-    }
+    if (!levelGroups[level]) levelGroups[level] = {};
+    if (!levelGroups[level][method]) levelGroups[level][method] = [];
 
     levelGroups[level][method].push(moveObj.move.name);
     return levelGroups;
   }, {});
 
-  const sortedLevels = Object.keys(groupedMoves)
-    .map(Number)
-    .sort((a, b) => a - b);
-
+  const sortedLevels = Object.keys(groupedMoves).map(Number).sort((a, b) => a - b);
   const displayedLevels = showAllMoves ? sortedLevels : sortedLevels.slice(0, 3);
 
   return (
     <div className="pokemon-detail">
       <h1>{pokemon.name.toUpperCase()}</h1>
 
-      <img
-        src={pokemon.sprites?.front_default}
-        alt={pokemon.name}
-        className="pokemon-image"
-      />
+      {/* ======== COLUNA DA IMAGEM ======== */}
+      <div className="pokemon-image-col">
+        <img
+          src={pokemon.sprites?.front_default}
+          alt={pokemon.name}
+          className="pokemon-image"
+        />
+      </div>
 
-      {/* ==================== INFORMAÇÕES GERAIS ==================== */}
+      {/* ======== INFORMAÇÕES ======== */}
       <div className="pokemon-info">
-        <p><strong>ID:</strong> {pokemon.id}</p>
-        <p><strong>Altura:</strong> {pokemon.height}</p>
-        <p><strong>Peso:</strong> {pokemon.weight}</p>
+        <div className="info-card">
+          <h3>ID</h3>
+          <p>{pokemon.id}</p>
+        </div>
+        <div className="info-card">
+          <h3>Altura</h3>
+          <p>{pokemon.height}</p>
+        </div>
+        <div className="info-card">
+          <h3>Peso</h3>
+          <p>{pokemon.weight}</p>
+        </div>
+        <div className="info-card">
+          <h3>Tipos</h3>
+          <div className="pokemon-types">
+            {pokemon.types.map((t, idx) => (
+              <span key={idx}>{t.type.name}</span>
+            ))}
+          </div>
+        </div>
 
-        <p>
-          <strong>Tipos:</strong> {pokemon.types.map((t) => t.type.name).join(", ")}
-        </p>
-
-        {/* ======== Habilidades ======== */}
+        {/* Habilidades */}
         <div className="pokemon-abilities">
           <h2>Habilidades</h2>
           <ul>
@@ -89,7 +97,7 @@ function PokemonDetail() {
         </div>
       </div>
 
-      {/* ==================== ESTATÍSTICAS ==================== */}
+      {/* ======== ESTATÍSTICAS ======== */}
       <div className="pokemon-stats">
         <h2>Estatísticas</h2>
         {pokemon.stats.map((statObj, idx) => (
@@ -109,11 +117,9 @@ function PokemonDetail() {
         ))}
       </div>
 
-      {/* ==================== MOVIMENTOS ==================== */}
+      {/* ======== MOVIMENTOS ======== */}
       <div className="pokemon-moves">
         <h2>Movimentos</h2>
-
-        {/* ======== CAMPO DE FILTRO ======== */}
         <div className="pokemon-moves-filter">
           <input
             type="text"
@@ -142,7 +148,6 @@ function PokemonDetail() {
                 ))}
               </div>
             ))}
-
             {sortedLevels.length > 3 && (
               <button
                 className="show-more-btn"
@@ -154,6 +159,18 @@ function PokemonDetail() {
           </>
         )}
       </div>
+
+      {/* ======== ITENS SEGURADOS ======== */}
+      {pokemon.held_items?.length > 0 && (
+        <div className="pokemon-held-items">
+          <h2>Itens Segurados</h2>
+          <ul className="held-items-list">
+            {pokemon.held_items.map((itemObj, idx) => (
+              <li key={idx}>{itemObj.item.name}</li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

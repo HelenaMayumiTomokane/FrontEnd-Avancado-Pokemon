@@ -2,19 +2,19 @@
   /* 🎨 Paleta de cores do cabeçalho */
   --color-header-backgroud: #1D3557;
   --color-header-text-primary: white;
-  --color-header-text-secondary: #FFCC00;
+  --color-header-text-secondary: #E6B800;
 
   /* 🎨 Paleta de cores do rodapé */
   --color-footer-backgroud: #1D3557;
   --color-footer-text-primary: white;
-  --color-footer-text-secondary: #FFCC00;
+  --color-footer-text-secondary: #E6B800;
 
   /* 🎨 Paleta de cores da página */
   --color-page-background: #F8FAFC;
   --colour-page-text-primary: #333333;
-  --colour-page-text-secondary: #FFCC00;
+  --colour-page-text-secondary: #E6B800;
   --colour-page-text-third: #555;
-  --color-page-h1-primary: #FFCC00;
+  --color-page-h1-primary: #E6B800;
   --color-page-h2-primary: #333;
 
   /* 🎨 Paleta de cores dos botões */
@@ -23,7 +23,7 @@
   --color-botton-text-primary: white;
 
   /* 🌈 Paleta especial para páginas interativas (Pokémon, jogos, etc.) */
-  --color-primary: #FFCC00; /* destaque principal */
+  --color-primary: #E6B800; /* destaque principal */
   --color-secondary: #FF5757; /* destaque secundário */
   --color-background-gradient: radial-gradient(circle, #e0f7fa, #80deea);
   --color-card-background: #FFFFFF;
