@@ -2,8 +2,8 @@
 
 ## 🎮 Descrição
 
-Este projeto é uma aplicação web que permite aos usuários buscar e visualizar informações detalhadas sobre Pokémons usando a [PokéAPI](https://pokeapi.co/).  
-A interface é responsiva, intuitiva e focada na experiência do usuário, exibindo dados como nome e tipo.
+Este projeto é uma aplicação web completa que permite aos usuários buscar, visualizar e gerenciar informações detalhadas sobre Pokémons utilizando a [PokéAPI](https://pokeapi.co/)
+e um backend interno em Flask.
 
 ---
 
@@ -11,27 +11,23 @@ A interface é responsiva, intuitiva e focada na experiência do usuário, exibi
 
 ### 1. Busca de Pokémons
 - Pesquisar Pokémons por nome ou ID (`GET`)
-- Visualizar detalhes completos de cada Pokémon
+- Exibição de dados como nome, tipo e apelidos dos Pokémons capturados.
 
 ### 2. Componentes de Interface
-- Cards de Pokémons
-- Barra de pesquisa interativa
 - Interface responsiva para desktop e dispositivos móveis
 
 ### 3. Serviços
 - Comunicação com a PokéAPI para obter dados em tempo real
 - Serviços organizados para facilitar manutenção e escalabilidade
 
-### 4. Testes
-- Testes unitários dos principais componentes da interface
-
 ---
 
 ## 🛠️ Tecnologias Utilizadas
-- ⚛️ React (JavaScript) para a interface e consumo da API.
-- 🖼️ HTML/CSS para layout e estilo.
-- 📦 Node.js / npm para gerenciamento de pacotes do frontend.
-- 🧪 API Externa: [PokéAPI](https://pokeapi.co/)  
+- ⚛️ **React (JavaScript)** para a interface e consumo da API.
+- 🖼️ **HTML** para layout.
+- 🎨 **CSS** para estilo.
+- 📦 **Node.js/npm** para gerenciamento de pacotes do frontend.
+- 🌐 **API Externa**: [PokéAPI](https://pokeapi.co/)  
 
 ---
 
@@ -53,9 +49,6 @@ FrontEnd-Avancado-Pokemon/
 │       ├── App.js               # Componente raiz da aplicação
 │       ├── index.js             # Ponto de entrada do React
 │       ├── index.css            # Estilos globais
-│       ├── reportWebVitals.js   # Métricas de performance
-│       └── setupTests.js        # Configuração de testes
-│
 │       ├── Image/               # Recursos de imagens
 │       │   └── logo.png         # Logo do projeto
 │       │
@@ -81,8 +74,6 @@ FrontEnd-Avancado-Pokemon/
 │       │   └── Shared/          # Componentes compartilhados
 │       │       └── Cash_Balance.js
 │       │
-│       ├── services/            # Serviços para comunicação com APIs
-│       │   └── pokemonService.js
 │       │
 │       └── pages/               # Páginas da aplicação
 │           ├── HabitatPage/
@@ -123,51 +114,77 @@ FrontEnd-Avancado-Pokemon/
 │
 
 ```
----
 
+---
 
 ## ⚙️ Instalação e Execução
 
-Pré-requisitos
-Node.js (v14 ou superior)
-npm
+### Pré-requisitos
+- 🟢 Node.js
+- 📦 npm
+- 🐳 Docker
 
-
+### Localmente (sem Docker)
 Passos
 1. Clone o repositório:
-git clone https://github.com/HelenaMayumiTomokane/FrontEnd-Avancado-Pokemon.git
+    ```bash
+    git clone https://github.com/HelenaMayumiTomokane/FrontEnd-Avancado-Pokemon.git
 
 2. Acesse a pasta do projeto:
-cd FrontEnd-Avancado-Pokemon
+    ```bash
+    cd FrontEnd-Avancado-Pokemon
 
 3. Instale as dependências:
-npm install
+    ```bash
+    npm install
 
 4. Execute a aplicação:
-npm start
+    ```bash
+    npm start
 
 A aplicação estará disponível em: http://localhost:3000/
-E para parar a execução pressione: Ctrl + C
 
+5. E para parar a execução pressione: Ctrl + C
+
+
+### Localmente (Com Docker)
+Passos
+1. Clone o repositório:
+    ```bash
+    git clone https://github.com/HelenaMayumiTomokane/FrontEnd-Avancado-Pokemon.git
+    cd FrontEnd-Avancado-Pokemon
+
+2. Certifique-se de ter Docker instalado e rodando, caso não tenha, instale o Docker.
+    ● Windows: ```https://docs.docker.com/desktop/install/windows-install/```
+    ● Ubuntu: ```https://docs.docker.com/engine/install/ubuntu/```
+    ● Mac OS: ```https://docs.docker.com/desktop/install/mac-install/```
+
+3. Na raiz do repositório, construa a imagem:
+    ```bash
+    docker build -t frontend-pokemon .
+
+4. Execute o container:
+    ```bash
+    docker run -d -p 3000:3000 frontend-pokemon
+
+5. Acesse via browser ou ferramenta de API:
+    ```bash
+    http://localhost:3000/openapi
+
+
+---
 ## 🌐 APIs Externas
 
-A aplicação consome dados da [PokéAPI](https://pokeapi.co/), utilizando os seguintes endpoints, sem necessidade de cadastro, ou licença de uso:
+A aplicação consome dados da [PokéAPI](https://pokeapi.co/), utilizando os seguintes endpoints, sem necessidade de cadastro ou licença de uso:
 
 ### Base URL
 https://pokeapi.co/api/v2
 
-
-
 ### Endpoints Utilizados
 
 #### 1. Berries
-- `/berry/` → Retorna a lista de todas as berries.
+- `/berry` → Retorna a lista de todas as berries.
 
 #### 2. Habitats
 - `/pokemon-habitat/` → Retorna a lista de todos os habitats de Pokémon.
 - `/pokemon-habitat/{nome}/` → Retorna todos os Pokémons de um habitat específico.
-
-
-
-
-💡 Caso tenha dúvidas ou encontre problemas, consulte a documentação ou abra uma issue no repositório! 🚀
