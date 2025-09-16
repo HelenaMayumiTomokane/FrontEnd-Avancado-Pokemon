@@ -11,8 +11,7 @@ function PokemonList({ pokemons, setPokemons, onUpdatePokemonName, onDeletePokem
             alt={pokemon.pokemon_species}
           />
           <div>
-            <label>ID Interno:</label> {pokemon.pokemon_id}<br />
-            <label>Espécie:</label> {pokemon.pokemon_species}<br />
+            <label>Nome:</label> {pokemon.pokemon_species}<br />
             <label>Apelido:</label>
             <input
               type="text"

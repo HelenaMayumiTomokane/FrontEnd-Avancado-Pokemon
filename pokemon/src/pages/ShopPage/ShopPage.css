@@ -25,15 +25,28 @@
   font-weight: bold;
 }
 
-/* ---------- Mensagens ---------- */
+/* ---------- Mensagem Temporária ---------- */
 #shop-message {
-  background: var(--colour-page-text-secondary);
-  color: var(--color-header-text-primary);
-  padding: 8px 12px;
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-botton-primary);
+  color: var(--color-botton-text-primary);
+  padding: 10px 20px;
   border-radius: 8px;
-  text-align: center;
   font-weight: bold;
-  margin-bottom: 16px;
+  text-align: center;
+  box-shadow: var(--box-shadow-default);
+  z-index: 200;
+  animation: fadeInOut 3s ease-in-out forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translate(-50%, -20px); }
+  10% { opacity: 1; transform: translate(-50%, 0); }
+  90% { opacity: 1; transform: translate(-50%, 0); }
+  100% { opacity: 0; transform: translate(-50%, -20px); }
 }
 
 /* ---------- Grid de Itens ---------- */
@@ -159,4 +172,34 @@
 
 #checkout-btn:hover {
   background: #16325c;
+}
+
+
+/* ---------- Cancelar Compra ---------- */
+#cancel-section {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  background: var(--color-botton-primary);
+  padding: 10px 16px;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow-default);
+  z-index: 150;
+}
+
+#cancel-btn {
+  background: var(--color-botton-primary);
+  color: var(--color-botton-text-primary);
+  border: none;
+  padding: 8px 14px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+#cancel-btn:hover {
+  background: var(--color-botton-primary-houver);
 }

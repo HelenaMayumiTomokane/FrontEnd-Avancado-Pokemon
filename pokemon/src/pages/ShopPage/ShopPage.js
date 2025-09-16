@@ -13,6 +13,10 @@ function ShopPage() {
   const [message, setMessage] = useState("");
   const [balanceTrigger, setBalanceTrigger] = useState(0);
 
+  // Controle do botão de cancelamento
+  const [cancelAvailable, setCancelAvailable] = useState(false);
+  const [cancelTimer, setCancelTimer] = useState(30);
+
   useEffect(() => {
     if (!user_id) return;
 
@@ -41,26 +45,91 @@ function ShopPage() {
   const handleRemoveFromCart = (index) =>
     setCart((prev) => prev.filter((_, i) => i !== index));
 
+  // Finaliza a compra
   const handleCheckout = async () => {
     const total = cart.reduce((acc, item) => acc + item.price, 0);
 
     if (total > 0) {
       try {
+        const bagIds = [];
+        const cashIds = [];
+
         for (let item of cart) {
           // Adiciona item na bag do usuário
-          await api_user_bag.APIPost_UserBag(user_id, "input", item.name, null);
+          const bagResponse = await api_user_bag.APIPost_UserBag(
+            user_id,
+            "input",
+            item.name,
+            null
+          );
+          bagIds.push(bagResponse.bag_id);
 
           // Desconta o valor do item do saldo do usuário
-          await api_cash_audit.APIPost_CashAudit(user_id, "output", item.price);
+          const cashResponse = await api_cash_audit.APIPost_CashAudit(
+            user_id,
+            "output",
+            item.price
+          );
+          cashIds.push(cashResponse.cash_id);
         }
+
+        // Salva os IDs no localStorage
+        localStorage.setItem("lastPurchase", JSON.stringify({ bagIds, cashIds }));
+
+        // Libera o botão de cancelar compra
+        setCancelAvailable(true);
+        setCancelTimer(30);
+
+        // Inicia contagem regressiva
+        const countdown = setInterval(() => {
+          setCancelTimer((prev) => {
+            if (prev <= 1) {
+              clearInterval(countdown);
+
+              // Remove os dados do localStorage automaticamente
+              localStorage.removeItem("lastPurchase");
+
+              // Desativa o botão após os 30s
+              setCancelAvailable(false);
+              return 0;
+            }
+            return prev - 1;
+          });
+        }, 1000);
 
         setCart([]);
         setMessage(`Compra realizada! Você gastou ${total} cash.`);
-        setBalanceTrigger(prev => prev + 1); // Atualiza saldo
+        setBalanceTrigger((prev) => prev + 1); // Atualiza saldo
       } catch (err) {
         console.error(err);
         setMessage("Erro ao finalizar a compra.");
       }
+    }
+  };
+
+  // Cancela a compra
+  const handleCancelPurchase = async () => {
+    const lastPurchase = JSON.parse(localStorage.getItem("lastPurchase"));
+    if (!lastPurchase) return;
+
+    try {
+      // Deleta os itens da bag
+      for (let bag_id of lastPurchase.bagIds) {
+        await api_user_bag.APIDelete_UserBag(bag_id);
+      }
+
+      // Deleta os registros de cash
+      for (let cash_id of lastPurchase.cashIds) {
+        await api_cash_audit.APIDelete_CashAudit(cash_id);
+      }
+
+      localStorage.removeItem("lastPurchase"); // Limpa os dados manualmente
+      setMessage("Compra cancelada com sucesso! Seus itens e saldo foram revertidos.");
+      setBalanceTrigger((prev) => prev + 1); // Atualiza saldo
+      setCancelAvailable(false); // Oculta o botão após cancelar
+    } catch (err) {
+      console.error(err);
+      setMessage("Erro ao cancelar a compra.");
     }
   };
 
@@ -114,6 +183,15 @@ function ShopPage() {
               Finalizar Compra
             </button>
           </div>
+        </div>
+      )}
+
+      {/* Botão de Cancelar Compra */}
+      {cancelAvailable && (
+        <div id="cancel-section">
+          <button id="cancel-btn" onClick={handleCancelPurchase}>
+            Cancelar Compra ({cancelTimer}s)
+          </button>
         </div>
       )}
     </div>

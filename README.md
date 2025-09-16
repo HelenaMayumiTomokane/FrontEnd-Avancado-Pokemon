@@ -151,7 +151,7 @@ E para parar a execução pressione: Ctrl + C
 
 ## 🌐 APIs Externas
 
-A aplicação consome dados da [PokéAPI](https://pokeapi.co/), utilizando os seguintes endpoints:
+A aplicação consome dados da [PokéAPI](https://pokeapi.co/), utilizando os seguintes endpoints, sem necessidade de cadastro, ou licença de uso:
 
 ### Base URL
 https://pokeapi.co/api/v2
