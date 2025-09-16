@@ -1,6 +1,6 @@
 # FrontEnd Avançado Pokémon
 
-## 🎮 Descrição
+## 📖 Descrição
 
 Este projeto é uma aplicação web completa que permite aos usuários buscar, visualizar e gerenciar informações detalhadas sobre Pokémons utilizando a [PokéAPI](https://pokeapi.co/)
 e um backend interno em Flask.
@@ -9,15 +9,19 @@ e um backend interno em Flask.
 
 ## 🚀 Funcionalidades
 
-### 1. Busca de Pokémons
+### 1. 🔍 Busca de Pokémons
 - Pesquisar Pokémons por nome ou ID (`GET`)
 - Exibição de dados como nome, tipo e apelidos dos Pokémons capturados.
 
-### 2. Componentes de Interface
+### 2. 🖥️ Componentes de Interface
 - Interface responsiva para desktop e dispositivos móveis
+- Visualização de informações do usuário:
+  - 🧑 Dados do usuário (login, nome, tipo)
+  - 🎒 Itens comprados na bag
+  - 💰 Dinheiro do jogo
 
-### 3. Serviços
-- Comunicação com a PokéAPI para obter dados em tempo real
+### 3. 🌐 Serviços
+- Comunicação com a [PokéAPI](https://pokeapi.co/) para obter dados em tempo real
 - Serviços organizados para facilitar manutenção e escalabilidade
 
 ---
@@ -155,9 +159,17 @@ Passos
     cd FrontEnd-Avancado-Pokemon
 
 2. Certifique-se de ter Docker instalado e rodando, caso não tenha, instale o Docker.
-    ● Windows: ```https://docs.docker.com/desktop/install/windows-install/```
-    ● Ubuntu: ```https://docs.docker.com/engine/install/ubuntu/```
-    ● Mac OS: ```https://docs.docker.com/desktop/install/mac-install/```
+    ● Windows: 
+        ```bash 
+        https://docs.docker.com/desktop/install/windows-install/
+
+    ● Ubuntu: 
+        ```bash 
+        https://docs.docker.com/engine/install/ubuntu/
+
+    ● Mac OS: 
+        ```bash 
+        https://docs.docker.com/desktop/install/mac-install/
 
 3. Na raiz do repositório, construa a imagem:
     ```bash
@@ -170,7 +182,6 @@ Passos
 5. Acesse via browser ou ferramenta de API:
     ```bash
     http://localhost:3000/openapi
-
 
 ---
 ## 🌐 APIs Externas

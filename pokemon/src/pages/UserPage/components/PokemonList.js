@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import * as api_owner_pokemon from "../../../components/Internal_API/Owner_Pokemon";
 
 function PokemonList({ pokemons, setPokemons }) {
@@ -18,7 +19,9 @@ function PokemonList({ pokemons, setPokemons }) {
 function PokemonCard({ pokemon, setPokemons }) {
   const [nickname, setNickname] = useState(pokemon.pokemon_name || "");
   const user_id = localStorage.getItem("user_id");
+  const navigate = useNavigate();
 
+  // Atualiza apelido do Pokémon
   const handleUpdate = async () => {
     if (!nickname.trim()) {
       alert("O apelido não pode ser vazio.");
@@ -50,6 +53,7 @@ function PokemonCard({ pokemon, setPokemons }) {
     }
   };
 
+  // Remove Pokémon
   const handleDelete = async () => {
     if (!window.confirm(`Deseja realmente remover ${pokemon.pokemon_species}?`)) return;
 
@@ -67,11 +71,18 @@ function PokemonCard({ pokemon, setPokemons }) {
     }
   };
 
+  // Navega para a página de detalhes do Pokémon
+  const goToDetails = () => {
+    navigate(`/pokemonDetails/${pokemon.pokemon_id_external_api}`);
+  };
+
   return (
     <div className="pokemon-card">
       <img
         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.pokemon_id_external_api}.png`}
         alt={pokemon.pokemon_species}
+        onClick={goToDetails} // clique na imagem abre detalhes
+        style={{ cursor: "pointer" }}
       />
       <div className="pokemon-info">
         <label>Nome:</label> {pokemon.pokemon_species}<br />

@@ -12,6 +12,7 @@ import UserPage from "./pages/UserPage/UserPage";
 
 import HabitatPage from "./pages/HabitatPage/HabitatPage";
 import PokemonPage from "./pages/PokemonPage/PokemonPage";
+import PokemonDetail from "./pages/PokemonDetail/PokemonDetail";
 
 import MiniGamesPage from "./pages/MiniGamesPage/MiniGamesPage";
 import ShopPage from "./pages/ShopPage/ShopPage";
@@ -31,6 +32,7 @@ function App() {
 
           <Route path="/habitats/:habitatName" element={<HabitatPage />} />
           <Route path="/pokemon/:pokemonName" element={<PokemonPage />} />
+          <Route path="/pokemonDetails/:id" element={<PokemonDetail />} />
 
           <Route path="/minigames" element={<MiniGamesPage />} />
           <Route path="/shoppage" element={<ShopPage />} />

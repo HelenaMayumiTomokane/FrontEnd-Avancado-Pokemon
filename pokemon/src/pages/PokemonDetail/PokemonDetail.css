@@ -1,0 +1,194 @@
+.pokemon-detail {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: var(--color-card-background);
+  border-radius: 12px;
+  box-shadow: var(--box-shadow-default);
+}
+
+.pokemon-detail h1 {
+  text-align: center;
+  color: var(--color-page-h1-primary);
+  margin-bottom: 20px;
+}
+
+.pokemon-image {
+  display: block;
+  margin: 0 auto 20px auto;
+  width: 150px;
+}
+
+.pokemon-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.pokemon-info p {
+  margin: 5px 0;
+}
+
+.pokemon-abilities h2 {
+  margin-top: 15px;
+  color: var(--color-secondary);
+}
+
+.pokemon-abilities ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pokemon-abilities li {
+  background: var(--color-primary);
+  color: var(--color-botton-text-primary);
+  padding: 6px 12px;
+  border-radius: 8px;
+  box-shadow: var(--box-shadow-default);
+}
+
+/* ==================== Movimentos ==================== */
+.pokemon-moves {
+  margin-top: 30px;
+}
+
+.pokemon-moves h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: var(--color-page-h2-primary);
+}
+
+.pokemon-moves-filter {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.pokemon-moves-filter input {
+  padding: 8px;
+  border: 1px solid var(--color-secondary);
+  border-radius: 8px;
+  width: 60%;
+  outline: none;
+}
+
+.move-group {
+  background: var(--color-card-background);
+  border: 1px solid var(--color-primary);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: var(--box-shadow-default);
+}
+
+.move-group h3 {
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.move-method-group {
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+
+.move-method-group h4 {
+  color: var(--color-secondary);
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.move-method-group ul {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.move-method-group li {
+  background: var(--color-secondary);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  box-shadow: var(--box-shadow-default);
+  transition: transform 0.2s ease;
+}
+
+.move-method-group li:hover {
+  transform: scale(1.05);
+  background: #e14b4b;
+}
+
+.show-more-btn {
+  display: block;
+  margin: 15px auto 0 auto;
+  padding: 8px 16px;
+  background: var(--color-botton-primary);
+  color: var(--color-botton-text-primary);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.show-more-btn:hover {
+  background: var(--color-botton-primary-houver);
+}
+
+
+/* ==================== SEÇÃO DE ESTATÍSTICAS ==================== */
+.pokemon-stats {
+  margin-top: 30px;
+  padding: 20px;
+  background: var(--color-card-background);
+  border: 1px solid var(--color-primary);
+  border-radius: 12px;
+  box-shadow: var(--box-shadow-default);
+}
+
+.pokemon-stats h2 {
+  text-align: center;
+  color: var(--color-secondary);
+  margin-bottom: 20px;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.stat-name {
+  width: 80px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: var(--color-text-dark);
+}
+
+.stat-bar {
+  flex: 1;
+  height: 22px;
+  background: #eaeaea;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-left: 10px;
+  box-shadow: var(--box-shadow-default);
+}
+
+.stat-fill {
+  height: 100%;
+  background: var(--color-primary);
+  color: var(--color-botton-text-primary);
+  text-align: right;
+  padding-right: 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  line-height: 22px;
+  border-radius: 10px 0 0 10px;
+  transition: width 0.5s ease;
+}
