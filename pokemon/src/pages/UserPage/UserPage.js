@@ -54,46 +54,6 @@ function UserPage() {
     loadData();
   }, [user_id, navigate]);
 
-  const handleUpdatePokemonName = async (pokemon_id, newName) => {
-    try {
-      const pokemon = pokemons.find((p) => p.pokemon_id === pokemon_id);
-      const data = await api_owner_pokemon.APIPut_OwnerPokemon(
-        pokemon_id,
-        user_id,
-        pokemon.pokemon_species,
-        pokemon.pokemon_id_external_api,
-        newName
-      );
-
-      if (data && data.pokemon_id) {
-        setPokemons((prev) =>
-          prev.map((p) =>
-            p.pokemon_id === pokemon_id ? { ...p, pokemon_name: newName } : p
-          )
-        );
-        setMessage(`Apelido do Pokémon atualizado!`);
-      }
-    } catch (error) {
-      console.error(error);
-      setMessage("Erro ao atualizar apelido do Pokémon.");
-    }
-  };
-
-  const handleDeletePokemon = async (pokemon_id) => {
-    if (!window.confirm("Deseja realmente remover este Pokémon?")) return;
-
-    try {
-      const data = await api_owner_pokemon.APIDelete_OwnerPokemon(pokemon_id);
-      if (data && data.pokemon_id) {
-        setPokemons((prev) => prev.filter((p) => p.pokemon_id !== pokemon_id));
-        setMessage("Pokémon removido!");
-      }
-    } catch (error) {
-      console.error(error);
-      setMessage("Erro ao remover Pokémon.");
-    }
-  };
-
   const handleLogout = () => {
     localStorage.removeItem("user_id");
     navigate("/");
@@ -116,15 +76,13 @@ function UserPage() {
             {pokemons.length > 0 ? (
               <PokemonList
                 pokemons={pokemons}
-                setPokemons={setPokemons}
-                onUpdatePokemonName={handleUpdatePokemonName}
-                onDeletePokemon={handleDeletePokemon}
+                setPokemons={setPokemons} // necessário para atualizar lista ao deletar
               />
             ) : (
               <p className="message">Você ainda não capturou nenhum Pokémon!</p>
             )}
           </section>
-          <br></br>
+          <br />
           {/* Itens da Bag */}
           <section className="card">
             <h2>Itens Comprados</h2>
