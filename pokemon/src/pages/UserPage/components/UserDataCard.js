@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { APIPut_AccountUser, APIDelete_AccountUser, APIGet_AccountUserByUser_ID } from "../../../components/Internal_API/Account_User";
-import { Eye, EyeOff } from "lucide-react";
 
 function UserDataCard() {
   const [login, setLogin] = useState("");
@@ -86,8 +85,12 @@ function UserDataCard() {
           value={password} 
           onChange={(e) => setPassword(e.target.value)} 
         />
-        <span className="password-toggle" onClick={() => setShowPassword(!showPassword)}>
-          {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+        <span
+          className="password-toggle"
+          onClick={() => setShowPassword(!showPassword)}
+          style={{ cursor: "pointer", marginLeft: "5px" }}
+        >
+          {showPassword ? "🙈" : "👁️"}
         </span>
       </div>
       <br />
