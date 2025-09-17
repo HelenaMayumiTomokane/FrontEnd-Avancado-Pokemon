@@ -13,11 +13,11 @@ flowchart TB
     %% Containers controlados pelo Docker Compose
     %% ----------------------------
     subgraph COMPOSE[Docker Compose]
-        subgraph FRONT[Container\nFrontend]
+        subgraph FRONT[Container \n Frontend]
             FE[Frontend - React]
         end
 
-        subgraph BACK[Container\nBackend + Banco de Dados]
+        subgraph BACK[Container \n Backend + Banco de Dados]
             BE[Backend - Flask API]
             DB[(Banco de Dados)]
             BE <--> DB
