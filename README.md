@@ -24,6 +24,7 @@ flowchart LR
     class POKEAPI pokeapi;
 ```
 
+---
 
 ## 🚀 Funcionalidades
 
@@ -169,9 +170,7 @@ Passos
     ```bash
     npm start
 
-A aplicação estará disponível em: http://localhost:3000/
-
-5. E para parar a execução pressione: Ctrl + C
+5. A aplicação estará disponível em: ```http://localhost:3000/``` e para parar a execução pressione: Ctrl + C
 
 
 ### Localmente (Com Docker)
@@ -221,4 +220,4 @@ https://pokeapi.co/api/v2
 - `/pokemon-habitat/{nome}` → Retorna todos os Pokémons de um habitat específico.
 
 #### 3. Pokemon
-- `/pokemon` → Retorna as informações sobre os pokemons.
+- `/pokemon/{nome}` → Retorna as informações sobre os pokemons.
