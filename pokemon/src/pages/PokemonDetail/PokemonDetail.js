@@ -159,18 +159,6 @@ function PokemonDetail() {
           </>
         )}
       </div>
-
-      {/* ======== ITENS SEGURADOS ======== */}
-      {pokemon.held_items?.length > 0 && (
-        <div className="pokemon-held-items">
-          <h2>Itens Segurados</h2>
-          <ul className="held-items-list">
-            {pokemon.held_items.map((itemObj, idx) => (
-              <li key={idx}>{itemObj.item.name}</li>
-            ))}
-          </ul>
-        </div>
-      )}
     </div>
   );
 }

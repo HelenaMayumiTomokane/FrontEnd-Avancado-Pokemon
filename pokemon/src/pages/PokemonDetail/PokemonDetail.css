@@ -261,42 +261,6 @@
   background: #e14b4b;
 }
 
-/* ======== ITENS SEGURADOS ======== */
-.pokemon-held-items {
-  grid-column: 1 / -1;
-  margin-top: 30px;
-  text-align: center;
-}
-
-.pokemon-held-items h2 {
-  margin-bottom: 10px;
-  color: var(--color-secondary);
-}
-
-.held-items-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  list-style: none;
-  padding: 0;
-}
-
-.held-items-list li {
-  background: var(--color-secondary);
-  color: white;
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  box-shadow: var(--box-shadow-default);
-  transition: transform 0.2s ease;
-}
-
-.held-items-list li:hover {
-  transform: scale(1.05);
-  background: #e14b4b;
-}
-
 /* ======== RESPONSIVO ======== */
 @media (max-width: 768px) {
   .pokemon-detail {
