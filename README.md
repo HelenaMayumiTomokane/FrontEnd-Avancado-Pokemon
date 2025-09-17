@@ -9,9 +9,9 @@ Seguindo esse formato para a organização e implementação dos módulos:
 
 ```mermaid
 flowchart LR
-    DB[(Banco de Dados)] <--> BE[Backend (Flask API)]
-    BE <--> FE[Frontend (React)]
-    POKEAPI[API Externa (PokeAPI)] --> FE
+    DB[(Banco de Dados)] <--> BE[Backend - Flask API]
+    BE <--> FE[Frontend - React]
+    POKEAPI[PokeAPI - API Externa] --> FE
 
     classDef db fill:#FFD700,stroke:#333,stroke-width:2px,color:#000;
     classDef backend fill:#FFB347,stroke:#333,stroke-width:2px,color:#000;
