@@ -5,6 +5,9 @@
 Este projeto é uma aplicação web completa que permite aos usuários buscar, visualizar e gerenciar informações detalhadas sobre Pokémons utilizando a [PokéAPI](https://pokeapi.co/)
 e um backend interno em Flask.
 
+Seguindo esse formato para a organização de implementação dos módulos
+![alt text](image.png)
+
 ---
 
 ## 🚀 Funcionalidades
