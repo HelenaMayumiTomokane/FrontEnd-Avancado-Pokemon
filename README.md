@@ -13,11 +13,11 @@ flowchart TB
     %% Containers controlados pelo Docker Compose
     %% ----------------------------
     subgraph COMPOSE[Docker Compose]
-        subgraph FRONT[Container Frontend]
+        subgraph FRONT[Container\nFrontend]
             FE[Frontend - React]
         end
 
-        subgraph BACK[Container Backend + Banco de Dados]
+        subgraph BACK[Container\nBackend + Banco de Dados]
             BE[Backend - Flask API]
             DB[(Banco de Dados)]
             BE <--> DB
@@ -25,7 +25,7 @@ flowchart TB
     end
 
     %% Comunicação externa
-    POKEAPI[PokeAPI - API Externa] --> BE
+    POKEAPI[PokeAPI - API Externa] --> FE
     FE <--> BE
 
     %% ----------------------------
@@ -43,6 +43,7 @@ flowchart TB
     class POKEAPI pokeapi;
     class COMPOSE compose;
 ```
+
 
 
 ---
