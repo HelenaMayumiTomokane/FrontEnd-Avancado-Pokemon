@@ -8,19 +8,19 @@ e um backend interno em Flask.
 Seguindo esse formato para a organização de implementação dos módulos
     ```mermaid
     flowchart LR
-    DB[(Banco de Dados)] <--> BE[Backend - Flask API]
-    BE <--> FE[Frontend - React]
-    POKEAPI[PokeAPI - API Externa] --> BE
+        DB[(Banco de Dados)] <--> BE[Backend - Flask API]
+        BE <--> FE[Frontend - React]
+        POKEAPI[PokeAPI - API Externa] --> BE
 
-    classDef db fill:#FFD700,stroke:#333,stroke-width:2px,color:#000;
-    classDef backend fill:#FFB347,stroke:#333,stroke-width:2px,color:#000;
-    classDef frontend fill:#61DAFB,stroke:#333,stroke-width:2px,color:#000;
-    classDef pokeapi fill:#FF6347,stroke:#333,stroke-width:2px,color:#fff;
+        classDef db fill:#FFD700,stroke:#333,stroke-width:2px,color:#000;
+        classDef backend fill:#FFB347,stroke:#333,stroke-width:2px,color:#000;
+        classDef frontend fill:#61DAFB,stroke:#333,stroke-width:2px,color:#000;
+        classDef pokeapi fill:#FF6347,stroke:#333,stroke-width:2px,color:#fff;
 
-    class DB db;
-    class BE backend;
-    class FE frontend;
-    class POKEAPI pokeapi;
+        class DB db;
+        class BE backend;
+        class FE frontend;
+        class POKEAPI pokeapi;
 
 
 ---
