@@ -5,25 +5,25 @@
 Este projeto é uma aplicação web completa que permite aos usuários buscar, visualizar e gerenciar informações detalhadas sobre Pokémons utilizando a [PokéAPI](https://pokeapi.co/)
 e um backend interno em Flask.
 
-Seguindo esse formato para a organização de implementação dos módulos
-    ```mermaid
-    flowchart LR
-        DB[(Banco de Dados)] <--> BE[Backend - Flask API]
-        BE <--> FE[Frontend - React]
-        POKEAPI[PokeAPI - API Externa] --> BE
+Seguindo esse formato para a organização de implementação dos módulos:
 
-        classDef db fill:#FFD700,stroke:#333,stroke-width:2px,color:#000;
-        classDef backend fill:#FFB347,stroke:#333,stroke-width:2px,color:#000;
-        classDef frontend fill:#61DAFB,stroke:#333,stroke-width:2px,color:#000;
-        classDef pokeapi fill:#FF6347,stroke:#333,stroke-width:2px,color:#fff;
+```mermaid
+flowchart LR
+    DB[(Banco de Dados)] <--> BE[Backend - Flask API]
+    BE <--> FE[Frontend - React]
+    POKEAPI[PokeAPI - API Externa] --> FE
 
-        class DB db;
-        class BE backend;
-        class FE frontend;
-        class POKEAPI pokeapi;
+    classDef db fill:#FFD700,stroke:#333,stroke-width:2px,color:#000;
+    classDef backend fill:#FFB347,stroke:#333,stroke-width:2px,color:#000;
+    classDef frontend fill:#61DAFB,stroke:#333,stroke-width:2px,color:#000;
+    classDef pokeapi fill:#FF6347,stroke:#333,stroke-width:2px,color:#fff;
 
+    class DB db;
+    class BE backend;
+    class FE frontend;
+    class POKEAPI pokeapi;
+```
 
----
 
 ## 🚀 Funcionalidades
 
