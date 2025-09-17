@@ -6,8 +6,8 @@ Este projeto é uma aplicação web completa que permite aos usuários buscar, v
 e um backend interno em Flask.
 
 Seguindo esse formato para a organização de implementação dos módulos
-```mermaid
-flowchart LR
+    ```mermaid
+    flowchart LR
     DB[(Banco de Dados)] <--> BE[Backend - Flask API]
     BE <--> FE[Frontend - React]
     POKEAPI[PokeAPI - API Externa] --> BE
